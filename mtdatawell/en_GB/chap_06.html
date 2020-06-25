@@ -1,0 +1,453 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="http://txt2tags.org">
+<TITLE>mtDataWell Handbook - Chapter 6 - mtDWCLI</TITLE></HEAD><BODY BGCOLOR="white" TEXT="black">
+<CENTER>
+</CENTER>
+
+<P>
+<A HREF="chap_05.html">Previous</A> | <A HREF="chap_00.html">Contents</A> | <A HREF="chap_A.html">Next</A>
+</P>
+
+<HR NOSHADE SIZE=1>
+
+<H1>6. mtDWCLI</H1>
+
+<P>
+mtDWCLI is a program that provides random data and cryptographic functionality via a Command Line Interface (CLI).  It offers the same features at the GUI based mtDataWell.
+</P>
+
+<A NAME="SEC1"></A>
+<H2>6.1 Commands</H2>
+
+<P>
+mtDWCLI reads instructions from the user via GNU Readline.  This offers useful interactive facilities like using the up and down arrows to access previous commands.
+</P>
+<P>
+It is also possible to run a script from the command line like these examples:
+</P>
+
+<PRE>
+  cat script.txt | mtdwcli
+  mtdwcli &lt; script.txt
+  mtdwcli &lt; script.txt &gt; log.txt 2&gt;&amp;1
+</PRE>
+
+<P>
+Here is the complete list of commands that mtDWCLI accepts:
+</P>
+
+<TABLE BORDER="1" CELLPADDING="4">
+<TR>
+<TD><B>Command</B></TD>
+<TD><B>Arguments</B></TD>
+<TD><B>Notes</B></TD>
+</TR>
+<TR>
+<TD>about</TD>
+<TD></TD>
+<TD>About the program</TD>
+</TR>
+<TR>
+<TD>app cardshuff</TD>
+<TD></TD>
+<TD>Shuffle a pack of cards</TD>
+</TR>
+<TR>
+<TD>app cointoss</TD>
+<TD>&lt;INTEGER&gt;</TD>
+<TD>Toss this number of coins</TD>
+</TR>
+<TR>
+<TD>app declist</TD>
+<TD>&lt;INTEGER&gt; &lt;DECIMAL MIN&gt; &lt;DECIMAL MAX&gt;</TD>
+<TD>List this number of random decimal numbers between this minimum and maximum</TD>
+</TR>
+<TR>
+<TD>app diceroll</TD>
+<TD>&lt;INTEGER&gt; &lt;INTEGER FACES&gt;</TD>
+<TD>Roll this number of dice with the given number of faces</TD>
+</TR>
+<TR>
+<TD>app homoglyph analyse</TD>
+<TD>&lt;INPUT FILENAME UTF-8&gt;</TD>
+<TD>Analyse this UTF-8 text file</TD>
+</TR>
+<TR>
+<TD>app homoglyph clean</TD>
+<TD>&lt;INPUT FILENAME UTF-8&gt; &lt;OUTPUT FILENAME UTF-8&gt;</TD>
+<TD>Clean this UTF-8 text file back to ASCII characters (if possible)</TD>
+</TR>
+<TR>
+<TD>app homoglyph decode</TD>
+<TD>&lt;INPUT FILENAME UTF-8&gt; &lt;OUTPUT FILENAME BIN&gt;</TD>
+<TD>Decode this encoded UTF-8 file back to the original binary file</TD>
+</TR>
+<TR>
+<TD>app homoglyph encode</TD>
+<TD>&lt;INPUT FILENAME UTF-8&gt; &lt;INPUT FILENAME BIN&gt; &lt;OUTPUT FILENAME UTF-8&gt;</TD>
+<TD>Encode this UTF-8 text file with this binary file</TD>
+</TR>
+<TR>
+<TD>app intlist</TD>
+<TD>&lt;INTEGER&gt; &lt;INTEGER MIN&gt; &lt;INTEGER RANGE&gt;</TD>
+<TD>List this number of random integers from the minimum over the set range</TD>
+</TR>
+<TR>
+<TD>app numshuff</TD>
+<TD>&lt;INTEGER&gt;</TD>
+<TD>Shuffle the integers from 0 to the given number minus 1</TD>
+</TR>
+<TR>
+<TD>app password</TD>
+<TD>&lt;INTEGER&gt; &lt;INTEGER CHARS&gt; [lower] [upper] [num] [other] [STRING]</TD>
+<TD>List this number of passwords, with this number of characters, with the given properties</TD>
+</TR>
+<TR>
+<TD>app pins</TD>
+<TD>&lt;INTEGER&gt; &lt;INTEGER DIGITS&gt;</TD>
+<TD>List this number of pin numbers with the given number of digits</TD>
+</TR>
+<TR>
+<TD>app utf8font clean</TD>
+<TD>&lt;INPUT FILENAME UTF-8&gt; &lt;OUTPUT FILENAME UTF-8&gt;</TD>
+<TD>Clean an encoded UTF-8 font text file, and return to ASCII encoding</TD>
+</TR>
+<TR>
+<TD>app utf8font encode</TD>
+<TD>&lt;INPUT FILENAME UTF-8&gt; &lt;INTEGER&gt; &lt;OUTPUT FILENAME UTF-8&gt;</TD>
+<TD>Encode an ASCII text file using a given UTF-8 font</TD>
+</TR>
+<TR>
+<TD>app utf8font list</TD>
+<TD></TD>
+<TD>List the UTF-8 fonts and their codes</TD>
+</TR>
+<TR>
+<TD>butt add buckets</TD>
+<TD>&lt;INTEGER&gt;</TD>
+<TD>Add buckets to the current OTP</TD>
+</TR>
+<TR>
+<TD>butt add otp</TD>
+<TD>&lt;STRING&gt;</TD>
+<TD>Create a new named OTP</TD>
+</TR>
+<TR>
+<TD>butt add random otp</TD>
+<TD></TD>
+<TD>Create a new randomly named OTP</TD>
+</TR>
+<TR>
+<TD>butt delete otp</TD>
+<TD>&lt;STRING&gt;</TD>
+<TD>Delete the named OTP</TD>
+</TR>
+<TR>
+<TD>butt empty</TD>
+<TD></TD>
+<TD>Empty the current OTP</TD>
+</TR>
+<TR>
+<TD>butt import otp</TD>
+<TD>&lt;PATH&gt;</TD>
+<TD>Import an OTP from the filesystem</TD>
+</TR>
+<TR>
+<TD>butt info</TD>
+<TD></TD>
+<TD>Print info about the Butt</TD>
+</TR>
+<TR>
+<TD>butt list</TD>
+<TD></TD>
+<TD>List all of the OTP names</TD>
+</TR>
+<TR>
+<TD>butt set otp</TD>
+<TD>&lt;STRING&gt;</TD>
+<TD>Change the current OTP</TD>
+</TR>
+<TR>
+<TD>butt set read_only</TD>
+<TD></TD>
+<TD>Disable OTP actions</TD>
+</TR>
+<TR>
+<TD>butt set read_write</TD>
+<TD></TD>
+<TD>Enable OTP actions</TD>
+</TR>
+<TR>
+<TD>db</TD>
+<TD>&lt;PATH&gt;</TD>
+<TD>Open a database (or create it)</TD>
+</TR>
+<TR>
+<TD>help</TD>
+<TD>[ARG]...</TD>
+<TD>Display help on this command</TD>
+</TR>
+<TR>
+<TD>info</TD>
+<TD></TD>
+<TD>Display Well, Butt and Soda info</TD>
+</TR>
+<TR>
+<TD>q</TD>
+<TD></TD>
+<TD>Quit the program</TD>
+</TR>
+<TR>
+<TD>quit</TD>
+<TD></TD>
+<TD>Quit the program</TD>
+</TR>
+<TR>
+<TD>soda decode</TD>
+<TD>&lt;INPUT FILENAME&gt; &lt;OUTPUT FILENAME&gt;</TD>
+<TD>Decode a Soda file</TD>
+</TR>
+<TR>
+<TD>soda encode</TD>
+<TD>&lt;INPUT FILENAME&gt; &lt;OUTPUT FILENAME&gt;</TD>
+<TD>Create a Soda file</TD>
+</TR>
+<TR>
+<TD>soda file info</TD>
+<TD>&lt;FILENAME&gt;</TD>
+<TD>Print information about a Soda file</TD>
+</TR>
+<TR>
+<TD>soda info</TD>
+<TD></TD>
+<TD>Print information about the current Soda settings</TD>
+</TR>
+<TR>
+<TD>soda multi decode</TD>
+<TD>&lt;INPUT FILENAME&gt; &lt;OUTPUT FILENAME&gt;</TD>
+<TD>Decode a nested Soda file</TD>
+</TR>
+<TR>
+<TD>soda multi encode</TD>
+<TD>&lt;INPUT FILENAME&gt; &lt;OUTPUT FILENAME&gt; &lt;BUTT NAME&gt;...</TD>
+<TD>Create a nested Soda file</TD>
+</TR>
+<TR>
+<TD>soda set mode</TD>
+<TD>&lt;INTEGER&gt;</TD>
+<TD>Set the Soda mode. 0=Encrypt using the butt; 1=Don't encrypt, store as raw data</TD>
+</TR>
+<TR>
+<TD>tap decode</TD>
+<TD>&lt;INPUT FILENAME&gt; &lt;OUTPUT FILENAME&gt;</TD>
+<TD>Decode a Bottle file to the original file stored inside the Soda</TD>
+</TR>
+<TR>
+<TD>tap encode</TD>
+<TD>&lt;INPUT BOTTLE&gt; &lt;INPUT FILE&gt; &lt;OUTPUT BOTTLE&gt;</TD>
+<TD>Create a Bottle file using a PNG/FLAC Bottle and a Soda input file</TD>
+</TR>
+<TR>
+<TD>tap file info</TD>
+<TD>&lt;FILENAME&gt;</TD>
+<TD>Print information about this Bottle file</TD>
+</TR>
+<TR>
+<TD>tap multi decode</TD>
+<TD>&lt;INPUT FILENAME&gt; &lt;OUTPUT FILENAME&gt;</TD>
+<TD>Decode a nested Bottle file (e.g. a PNG stored inside a FLAC)</TD>
+</TR>
+<TR>
+<TD>well add path</TD>
+<TD>&lt;PATH&gt;</TD>
+<TD>Add the filenames inside this path to the Well database</TD>
+</TR>
+<TR>
+<TD>well empty</TD>
+<TD></TD>
+<TD>Remove all filenames from the Well database</TD>
+</TR>
+<TR>
+<TD>well info</TD>
+<TD></TD>
+<TD>Print information about the Well</TD>
+</TR>
+<TR>
+<TD>well reset shifts</TD>
+<TD></TD>
+<TD>Reset the Well shifts</TD>
+</TR>
+<TR>
+<TD>well save file</TD>
+<TD>&lt;BYTES&gt; &lt;FILENAME&gt;</TD>
+<TD>Create a file of random data using the Well</TD>
+</TR>
+<TR>
+<TD>well seed</TD>
+<TD></TD>
+<TD>Re-seed the Well PRNG using the current time</TD>
+</TR>
+<TR>
+<TD>well seed int</TD>
+<TD>&lt;INTEGER&gt;</TD>
+<TD>Re-seed the Well PRNG using this integer</TD>
+</TR>
+</TABLE>
+
+<A NAME="SEC2"></A>
+<H2>6.2 Examples</H2>
+
+<A NAME="SEC21"></A>
+<H2>6.2.1 Setting up a Well</H2>
+
+<P>
+The first time you use mtDWCLI you will need to set up the Well in order to
+create high quality random data.  This is done by passing some files to the Well
+as a source of real world entropy:
+</P>
+
+<PRE>
+  well add path /some/directory/location/001
+  well add path /some/directory/location/002
+  well add path /some/directory/location/003
+</PRE>
+
+<P>
+To find out the current state of the Well:
+</P>
+
+<PRE>
+  well info
+</PRE>
+
+<P>
+Once the Well is set up you can use it to create arbitrary files of random data
+like this:
+</P>
+
+<PRE>
+  well save file 11 /some/directory/location/004.bin
+  well save file 127 /some/directory/location/005.bin
+  well save file 128 /some/directory/location/006.bin
+  well save file 129 /some/directory/location/007.bin
+  well save file 1000000 /some/directory/location/010.bin
+</PRE>
+
+<A NAME="SEC22"></A>
+<H2>6.2.2 Managing the Butt</H2>
+
+<P>
+The first time you use mtDWCLI you will need to set up the Butt to use a one time pad (OTP). By default a random OTP name is created for you.
+</P>
+<P>
+You must then put some Well data into the Butt using the Well as a source:
+</P>
+
+<PRE>
+  butt add buckets 25
+</PRE>
+
+<P>
+Each bucket is 16 megabytes.
+</P>
+<P>
+You can create as many OTP's as you like, such as:
+</P>
+
+<PRE>
+  butt add otp bertie_06
+  butt add otp jane_54
+  butt add otp george_15
+  butt add otp rosi_06
+</PRE>
+
+<P>
+To switch to using a different OTP for encryption, and to see its current state use these commands:
+</P>
+
+<PRE>
+  butt set otp jane_54
+  butt info
+</PRE>
+
+<A NAME="SEC23"></A>
+<H2>6.2.3 Creating Soda</H2>
+
+<P>
+To encode a user file using encryption with data from the current Butt you could do this:
+</P>
+
+<PRE>
+  # encode and encrypt
+  soda set mode 0
+  
+  soda encode input.txt output.soda
+</PRE>
+
+<P>
+Sometimes you may not want to encrypt something. For example if you wanted to store some data in a PNG or FLAC file later using a Tap, you may not want to encrypt.  In this case to encode a Soda file you would use:
+</P>
+
+<PRE>
+  # encode but don't encrypt
+  soda set mode 1
+  
+  soda encode input.txt output.soda
+</PRE>
+
+<P>
+You can also encode multiple times using different Butts as follows:
+</P>
+
+<PRE>
+  soda multi encode input.txt output.soda george_15 jane_54 rosi_06 bertie_06
+</PRE>
+
+<P>
+To decode a single or multiple nested Soda files you would use:
+</P>
+
+<PRE>
+  soda multi decode output.soda input2.txt
+</PRE>
+
+<A NAME="SEC24"></A>
+<H2>6.2.4 Using a Tap</H2>
+
+<P>
+If you want to conceal a file inside a PNG or FLAC file you would do this:
+</P>
+
+<PRE>
+  tap encode bottle.flac input.txt bottle2.flac
+</PRE>
+
+<P>
+The output file is still a valid audio file and can be used as such.  However it also contains the input.txt file which can be extracted by using:
+</P>
+
+<PRE>
+  tap decode bottle2.flac input2.txt
+</PRE>
+
+<P>
+It is possible to nest several Soda levels in a file, and then place this into a FLAC or PNG file in a kind of Russian doll.  To extract a message buried inside more than one level you could use:
+</P>
+
+<PRE>
+  soda multi encode input.txt input.soda butt_1 butt_2 butt_3 butt_4
+  tap encode bottle.flac input.soda bottle.soda.flac
+  tap multi decode bottle.soda.flac input2.txt
+</PRE>
+
+<HR NOSHADE SIZE=1>
+
+<P>
+<A HREF="chap_05.html">Previous</A> | <A HREF="chap_00.html">Contents</A> | <A HREF="chap_A.html">Next</A>
+</P>
+
+<!-- html code generated by txt2tags 2.6 (http://txt2tags.org) -->
+<!-- cmdline: txt2tags -t html -o chap_06.html chap_06.t2t -->
+</BODY></HTML>

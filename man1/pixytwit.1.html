@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of PIXYTWIT</TITLE>
+</HEAD><BODY>
+<H1>PIXYTWIT</H1>
+Section: User Commands  (1)<BR>Updated: 2020-06-24<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<P>
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+<P>
+
+pixytwit - prepare twitter image
+<P>
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+<P>
+
+<B>pixytwit</B> [ [OPTION]... [FILE] ]...
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+<P>
+
+Create an output file from a source file ready for twitter.  Twitter sometimes
+mangles a pixel art image unless its RGB, and has an alpha pixel.  This program
+ensures the output file has these qualities, and is at least 1000 pixels in
+size.
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+<P>
+
+<B>--version</B>
+<P>
+<DL COMPACT><DT><DD>
+Output version information and exit.
+</DL>
+
+<P>
+<P>
+
+<B>-comp_png</B> INTEGER
+<P>
+<DL COMPACT><DT><DD>
+Set compression level for PNG files. Default=6
+</DL>
+
+<P>
+<P>
+
+<B>-o</B> STRING
+<P>
+<DL COMPACT><DT><DD>
+Save current image to this file (immediately).
+</DL>
+
+<P>
+<P>
+
+<B>-otype</B> STRING
+<P>
+<DL COMPACT><DT><DD>
+Output format of file (use 'list' to list types, default=PNG).
+</DL>
+
+<P>
+<A NAME="lbAF">&nbsp;</A>
+<H2>EXAMPLE</H2>
+
+<P>
+<P>
+
+<B>pixytwit</B> in.bmp -o out.png
+<P>
+<A NAME="lbAG">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+<P>
+<P>
+
+<A HREF="../man1/pixyutils.1.html">pixyutils</A>(1)
+<P>
+<A NAME="lbAH">&nbsp;</A>
+<H2>HOMEPAGE</H2>
+
+<P>
+<P>
+
+<A HREF="http://ced.marktyler.org/">http://ced.marktyler.org/</A>
+<P>
+<A NAME="lbAI">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<P>
+<P>
+
+Mark Tyler
+<P>
+
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">EXAMPLE</A><DD>
+<DT><A HREF="#lbAG">SEE ALSO</A><DD>
+<DT><A HREF="#lbAH">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAI">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://doc.marktyler.org/">man2html</A>,
+using the manual pages.<BR>
+Time: 09:52:36 GMT, June 24, 2020
+</BODY>
+</HTML>
