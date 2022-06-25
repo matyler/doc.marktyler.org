@@ -1,0 +1,195 @@
+Content-type: text/html; charset=UTF-8
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of MTRDC</TITLE>
+</HEAD><BODY>
+<H1>MTRDC</H1>
+Section: User Commands  (1)<BR>Updated: 2022-06-25<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+mtrdc - random data creator
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>mtrdc</B> [ <B>OPTIONS</B> ]
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+mtrdc is a command line program that offers various tools for creating random
+data.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+
+<B>--version</B>
+<DL COMPACT><DT><DD>
+Output version information and exit.
+</DL>
+
+<P>
+
+<B>-create-matrix</B>
+<DL COMPACT><DT><DD>
+Create a TSV output file with data in the cells from the PRNG.
+</DL>
+
+<P>
+
+<B>-create-passwords</B>
+<DL COMPACT><DT><DD>
+Create passwords using the pad, putting them into the output file.
+<B>-iterations</B> passwords are created if the pad is large enough.
+</DL>
+
+<P>
+
+<B>-create-prng</B>
+<DL COMPACT><DT><DD>
+Create a binary output file with data from the PRNG.
+</DL>
+
+<P>
+
+<B>-create-shuffle</B>
+<DL COMPACT><DT><DD>
+Create an output file by shuffling the input file bytes using the pad.
+</DL>
+
+<P>
+
+<B>-create-unshuffle</B>
+<DL COMPACT><DT><DD>
+Create an output file by unshuffling the input file bytes using the pad.
+</DL>
+
+<P>
+
+<B>-create-xor</B>
+<DL COMPACT><DT><DD>
+Create an output file by XOR'ing each byte of the input file with
+bytes from the pad.  The pad must have enough bytes to match the input
+file otherwise an error is generated.
+</DL>
+
+<P>
+
+<B>-i</B> STRING
+<DL COMPACT><DT><DD>
+Set input filename.
+</DL>
+
+<P>
+
+<B>-iterations</B> INTEGER
+<DL COMPACT><DT><DD>
+Total iterations (default=1000000).
+</DL>
+
+<P>
+
+<B>-matrix-cols</B> INTEGER
+<DL COMPACT><DT><DD>
+Matrix column total (default=1000).
+</DL>
+
+<P>
+
+<B>-matrix-rows</B> INTEGER
+<DL COMPACT><DT><DD>
+Matrix row total (default=1000).
+</DL>
+
+<P>
+
+<B>-o</B> STRING
+<DL COMPACT><DT><DD>
+Set output filename.
+</DL>
+
+<P>
+
+<B>-pad</B> STRING
+<DL COMPACT><DT><DD>
+Set pad filename.
+</DL>
+
+<P>
+
+<B>-pad-start</B> INTEGER
+<DL COMPACT><DT><DD>
+Byte offset to start reading the pad from (default=0).
+</DL>
+
+<P>
+
+<B>-password-chars</B> STRING
+<DL COMPACT><DT><DD>
+Set password characters (2-128 chars, default=0123456789abcdefghijklmnopqrstuvwxyz).
+</DL>
+
+<P>
+
+<B>-password-len</B> INTEGER
+<DL COMPACT><DT><DD>
+Set password length (4-128, default=10).
+</DL>
+
+<P>
+
+<B>-print-analysis</B>
+<DL COMPACT><DT><DD>
+Analyse the input file statistically.
+</DL>
+
+<P>
+
+<B>-seed</B> INTEGER
+<DL COMPACT><DT><DD>
+Set PRNG seed (default=time).
+</DL>
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>HOMEPAGE</H2>
+
+<P>
+
+<A HREF="https://www.marktyler.org/">https://www.marktyler.org/</A>
+<A NAME="lbAG">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<P>
+
+Mark Tyler
+<P>
+
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAG">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://doc.marktyler.org/">man2html</A>,
+using the manual pages.<BR>
+Time: 15:07:56 GMT, June 25, 2022
+</BODY>
+</HTML>

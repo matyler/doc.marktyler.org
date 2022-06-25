@@ -1,0 +1,258 @@
+Content-type: text/html; charset=UTF-8
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of CEDUTILS</TITLE>
+</HEAD><BODY>
+<H1>CEDUTILS</H1>
+Section: User Commands  (1)<BR>Updated: 2022-06-25<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+cedutils - spreadsheet utilities
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>cedutils</B> [ <B>OPTION</B> ]...
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+mtCedUtils is a collection of command line functions for manipulating TSV or CSV spreadsheet text.  These functions can be executed using <B>cedutils</B> or the function names directly as listed in the <B>SEE ALSO</B> section.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+
+<B>--version</B>
+<DL COMPACT><DT><DD>
+Output version information and exit.
+</DL>
+
+<P>
+
+<B>-anti</B>
+<DL COMPACT><DT><DD>
+Rotate clockwise (default).
+</DL>
+
+<P>
+
+<B>-case</B>
+<DL COMPACT><DT><DD>
+Case sensitive search.
+</DL>
+
+<P>
+
+<B>-clock</B>
+<DL COMPACT><DT><DD>
+Rotate clockwise (default).
+</DL>
+
+<P>
+
+<B>-col</B>
+<DL COMPACT><DT><DD>
+<B>cedappend</B> - Place the following files horizontally.
+<B>cedcut</B> - Cut column(s).
+<B>cedflip</B> - Flip columns horizontally.
+<B>cedinsert</B> - Insert column(s).
+<B>cedsort</B> - Sort columns.
+</DL>
+
+<P>
+
+<B>-com</B> STRING
+<DL COMPACT><DT><DD>
+Change command (with or without ced prefix).  Available commands:
+cedappend,
+cedclear,
+cedcut,
+ceddiff,
+cedeval,
+cedfind,
+cedflip,
+cedinsert,
+cedls,
+cedpaste,
+cedrotate,
+cedset,
+cedsort,
+cedtranspose
+</DL>
+
+<P>
+
+<B>-csv</B>
+<DL COMPACT><DT><DD>
+The following input file is CSV.
+</DL>
+
+<P>
+
+<B>-dest</B> STRING
+<DL COMPACT><DT><DD>
+Paste to this section of the sheet (default = r1c1:r1c1 ).
+When a single cell, paste whole of input.  Otherwise truncate
+or repeat input data to fill the dest range.
+</DL>
+
+<P>
+
+<B>-i</B> STRING
+<DL COMPACT><DT><DD>
+Load this input file.  &quot;-&quot; loads from stdin.
+</DL>
+
+<P>
+
+<B>-num</B>
+<DL COMPACT><DT><DD>
+Find numerical value.
+</DL>
+
+<P>
+
+<B>-o</B> STRING
+<DL COMPACT><DT><DD>
+Save current sheet to this file (immediately).  &quot;-&quot; prints to stdout.
+</DL>
+
+<P>
+
+<B>-otype</B> STRING
+<DL COMPACT><DT><DD>
+Output format of file (use 'list' to list types, default=TSV content).
+</DL>
+
+<P>
+
+<B>-range</B> STRING
+<DL COMPACT><DT><DD>
+<B>cedclear</B> - Clear these cells (default = r1c1:r_c_ ).
+<B>cedfind</B> - Search in this range (default = r1c1:r_c_ ).
+<B>cedpaste</B> - Paste from this section of the input file (default = r1c1:r_c_ ).
+<B>cedfuzzmap</B> - Set range for the following file.
+</DL>
+
+<P>
+
+<B>-recalc</B> INTEGER
+<DL COMPACT><DT><DD>
+Recalculate the sheet this many times (top-bottom, bottom-top).
+</DL>
+
+<P>
+
+<B>-row</B>
+<DL COMPACT><DT><DD>
+<B>cedappend</B> - Place the following files vertically (default).
+<B>cedcut</B> - Cut row(s) (default).
+<B>cedlip</B> - Flip rows vertically (default).
+<B>cedinsert</B> - Insert row(s) (default).
+<B>cedsort</B> - Sort rows (default)
+</DL>
+
+<P>
+
+<B>-start</B> INTEGER
+<DL COMPACT><DT><DD>
+<B>cedcut</B> - Start cutting at this row or column (default = 1).
+<B>cedinsert</B> - Start inserting at this row or column (default = 1).
+<B>cedsort</B> - First row/column to sort from (default = 1).
+</DL>
+
+<P>
+
+<B>-total</B> INTEGER
+<DL COMPACT><DT><DD>
+<B>cedcut</B> - Total number of rows or columns to cut (default = 1).
+<B>cedinsert</B> - Total number of rows or columns to insert (default = 1).
+<B>cedsort</B> - Total rows/colums to sort (default = 1 = all).
+</DL>
+
+<P>
+
+<B>-tsv</B>
+<DL COMPACT><DT><DD>
+The following input file is TSV (default).
+</DL>
+
+<P>
+
+<B>-v</B>
+<DL COMPACT><DT><DD>
+Verbose.
+<B>cedfind</B> - Output the cell content as well as the address.
+</DL>
+
+<P>
+
+<B>-wildcard</B>
+<DL COMPACT><DT><DD>
+* and ? characters are wildcards.
+</DL>
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+<P>
+
+<A HREF="../man1/cedappend.1.html">cedappend</A>(1),
+<A HREF="../man1/cedclear.1.html">cedclear</A>(1),
+<A HREF="../man1/cedcut.1.html">cedcut</A>(1),
+<A HREF="../man1/ceddiff.1.html">ceddiff</A>(1),
+<A HREF="../man1/cedeval.1.html">cedeval</A>(1),
+<A HREF="../man1/cedfind.1.html">cedfind</A>(1),
+<A HREF="../man1/cedflip.1.html">cedflip</A>(1),
+<A HREF="../man1/cedfuzzmap.1.html">cedfuzzmap</A>(1),
+<A HREF="../man1/cedinsert.1.html">cedinsert</A>(1),
+<A HREF="../man1/cedls.1.html">cedls</A>(1),
+<A HREF="../man1/cedpaste.1.html">cedpaste</A>(1),
+<A HREF="../man1/cedrotate.1.html">cedrotate</A>(1),
+<A HREF="../man1/cedset.1.html">cedset</A>(1),
+<A HREF="../man1/cedsort.1.html">cedsort</A>(1),
+<A HREF="../man1/cedtranspose.1.html">cedtranspose</A>(1)
+<A NAME="lbAG">&nbsp;</A>
+<H2>HOMEPAGE</H2>
+
+<P>
+
+<A HREF="https://www.marktyler.org/">https://www.marktyler.org/</A>
+<A NAME="lbAH">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<P>
+
+Mark Tyler
+<P>
+
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">SEE ALSO</A><DD>
+<DT><A HREF="#lbAG">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAH">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://doc.marktyler.org/">man2html</A>,
+using the manual pages.<BR>
+Time: 15:07:56 GMT, June 25, 2022
+</BODY>
+</HTML>

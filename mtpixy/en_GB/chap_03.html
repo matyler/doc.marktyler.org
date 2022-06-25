@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="http://txt2tags.org">
+<style>
+body{background-color:#fff;color:#000;}
+hr{background-color:#000;border:0;color:#000;}
+hr.heavy{height:5px;}
+hr.light{height:1px;}
+img{border:0;display:block;}
+img.right{margin:0 0 0 auto;}
+img.center{border:0;margin:0 auto;}
+table th,table td{padding:4px;}
+.center,header{text-align:center;}
+table.center {margin-left:auto; margin-right:auto;}
+.right{text-align:right;}
+.left{text-align:left;}
+.tableborder,.tableborder td,.tableborder th{border:1px solid #000;}
+.underline{text-decoration:underline;}
+</style>
+<TITLE>The mtPixy Handbook - Chapter 3 - System Administrator Notes</TITLE></head>
+<body>
+<header>
+<hgroup>
+</hgroup>
+</header>
+<article>
+
+<div class="body" id="body">
+<p>
+<a href="chap_02.html">Previous</a> | <a href="chap_00.html">Contents</a> | <a href="chap_04.html">Next</a>
+</p>
+
+<hr class="light">
+
+<section>
+<h1>3. System Administrator Notes</h1>
+
+<section id="SEC1">
+<h2>3.1 Dependencies</h2>
+
+<p>
+In order to compile and run mtPixy you must have several packages already present on your system:
+</p>
+
+<ul>
+<li>A GNU toolchain (gcc, gmake, gawk, etc).
+</li>
+<li>Qt version 5.
+</li>
+<li>txt2tags.
+</li>
+<li>Inkscape (to build the GUI app icons)
+</li>
+</ul>
+
+<p>
+These must also include library headers, which some operating systems provide in separate packages.
+</p>
+<p>
+mtPixy then requires various libraries that I have created:
+</p>
+
+<table class="tableborder">
+<tr>
+<td><strong>Package</strong></td>
+<td><strong>Dependencies</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>libmtKit</td>
+<td>zlib, libsqlite3</td>
+<td>Low level C/C++ routines, including strings, UTF-8, ZIP file handling, preferences, trees, databases.</td>
+</tr>
+<tr>
+<td>libmtPixy</td>
+<td>libmtKit, libpng, libjpeg, giflib, FreeType, Pango, Cairo, librsvg</td>
+<td>The core pixel engine, including all file handling and general operations.</td>
+</tr>
+<tr>
+<td>libmtQEX</td>
+<td>libmtKit, Qt5</td>
+<td>Various Qt function utilities including preferences editor.</td>
+</tr>
+</table>
+
+<p>
+The other optional parts of the suite have these dependencies:
+</p>
+
+<table class="tableborder">
+<tr>
+<td><strong>Package</strong></td>
+<td><strong>Dependencies</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>mtPixyCLI</td>
+<td>libmtKit, libmtPixy, readline</td>
+<td>Command line pixel editor</td>
+</tr>
+<tr>
+<td>mtPixyUtils</td>
+<td>libmtKit, libmtPixy</td>
+<td>Command line pixel tools</td>
+</tr>
+</table>
+
+</section>
+<section id="SEC2">
+<h2>3.2 Compilation</h2>
+
+<p>
+As outlined above you must build and install the packages in this order:
+</p>
+
+<ul>
+<li>libmtKit
+</li>
+<li>libmtPixy
+</li>
+<li>libmtQEX
+</li>
+<li>mtPixy
+</li>
+</ul>
+
+<p>
+In all cases you use these commands to compile the programs:
+</p>
+
+<pre>
+./configure
+make
+</pre>
+
+<p>
+Don't forget to study the makefile and configure script before doing anything.
+For the complete set of configure options use:
+</p>
+
+<pre>
+./configure --help
+</pre>
+
+<p>
+The build system I have created uses simple hand built scripts and makefiles.
+I find this the best way to build the various components of the project.  More
+elaborate systems like GNU Autotools are of no interest to me as they do not
+solve any problems I have (portability outside the GNU/Linux ecosystem is of
+no interest to me).
+</p>
+
+</section>
+<section id="SEC3">
+<h2>3.3 Installation</h2>
+
+<p>
+Once compilation is completed, use this to install (you must have root user rights):
+</p>
+
+<pre>
+make install
+</pre>
+
+<p>
+You can change the destination directory at this stage if you are creating a package by using:
+</p>
+
+<pre>
+make install DESTDIR=/my/chosen/directory/
+</pre>
+
+<section id="SEC31">
+<h3>3.3.1 Program man Page</h3>
+
+<p>
+mtPixy has usage information contained in the associated man page.  This can be read in the usual way using the man program, such as this example:
+</p>
+
+<pre>
+man mtpixy-qt5
+</pre>
+
+</section>
+</section>
+<section id="SEC4">
+<h2>3.4 Uninstalling</h2>
+
+<p>
+You can uninstall the program and libraries by using (you must have root user rights):
+</p>
+
+<pre>
+make uninstall
+</pre>
+
+<p>
+You will also need to remove any preferences files which are
+kept in the user directories such as /home/user/.config/mtpixy/prefs.txt
+</p>
+
+</section>
+<section id="SEC5">
+<h2>3.5 Package Management</h2>
+
+<p>
+I aim to get my software working on as many different GNU/Linux systems as possible.  To achieve this rationally without testing on hundreds of systems, I work towards compatibility with these system types: Debian, Fedora, and Arch.  In doing so I will also achieve compatibility with similar systems.
+</p>
+<p>
+To achieve these goals as quickly and as easily as possible I use various scripts in the /pkg/ directory to install and test the software (including how I package the software using native package management tools such as pacman, dpkg and rpm).  The README.txt file in /pkg/ documents how I do these things, step by step.
+</p>
+<p>
+The scripts for the different systems all do very different jobs but their interface at the command line is identical.  For example to build and install on different platforms using the native package management system you could use:
+</p>
+
+<pre>
+./build_arch.sh --preconf "CC=clang"
+./build_debian.sh --conf "debug"
+./build_fedora.sh --conf "--libdir=/usr/lib64"
+</pre>
+
+<p>
+If your system doesn't use pacman, dpkg, or rpm then you can always use the classic ./configure, make, make install based script using the same arguments:
+</p>
+
+<pre>
+./build_install.sh --preconf "CC=clang" --conf "--libdir=/usr/lib64"
+</pre>
+
+<p>
+And if you want to remove all of the installed packages from your system, just use one of these:
+</p>
+
+<pre>
+./build_arch.sh remove
+./build_debian.sh remove
+./build_fedora.sh remove
+./build_install.sh remove
+</pre>
+
+<p>
+Here are the options that are available to these 4 scripts:
+</p>
+
+<table class="tableborder">
+<tr>
+<td>flush</td>
+<td>Clear out the temporary files after a compilation.</td>
+</tr>
+<tr>
+<td>remove</td>
+<td>Remove all installed files from a previous build and install.</td>
+</tr>
+<tr>
+<td>--preconf ARG</td>
+<td>Add environment variable settings such as CC or CFLAGS.</td>
+</tr>
+<tr>
+<td>--conf ARG</td>
+<td>Pass arguments to the configure script such as --libdir or debug.</td>
+</tr>
+<tr>
+<td>--bcfile ARG</td>
+<td>If you want to pass different configure lines to different packages you would use a custom built bcfile.  See /pkg/ for a few examples example of this.  When using --bcfile the options --preconf and --conf do nothing.</td>
+</tr>
+</table>
+
+<p>
+Normally all of the different packages are built in sequence.  However you can also pass specific package names to build and install just those items, such as:
+</p>
+
+<pre>
+./build_install.sh libmtkit libmtpixy
+</pre>
+
+<p>
+To remove these items you would use:
+</p>
+
+<pre>
+./build_install.sh libmtkit libmtpixy remove
+</pre>
+
+<section id="SEC51">
+<h3>3.5.1 Local Installation</h3>
+
+<p>
+Sometimes it is desirable not to install the program files on the system, and instead install somewhere else using the --prefix= configure script argument such as:
+</p>
+
+<ul>
+<li>~/test_a/usr
+</li>
+<li>~/test_b/usr
+</li>
+<li>~/test_c/usr
+</li>
+</ul>
+
+<p>
+This could be because a user does not have permission to install on the system, or because you want to have different test versions all using different versions of the core libraries.
+</p>
+<p>
+In this case you must use the <strong>build_local.sh</strong> script like this:
+</p>
+
+<pre>
+DIR="$HOME/test/usr"; ./build_local.sh \
+	--preconf "LDFLAGS=-Wl,-rpath=$DIR/lib" \
+	--conf "--disable-man --prefix=$DIR"
+</pre>
+
+<p>
+For a longer example see the file: ./pkg/README.txt
+</p>
+
+<hr class="light">
+
+<p>
+<a href="chap_02.html">Previous</a> | <a href="chap_00.html">Contents</a> | <a href="chap_04.html">Next</a>
+</p>
+</section>
+</section>
+</section>
+</div>
+
+<!-- html code generated by txt2tags 3.4 (http://txt2tags.org) -->
+<!-- cmdline: txt2tags -t html -o chap_03.html chap_03.t2t -->
+</article></body></html>

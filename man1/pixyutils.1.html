@@ -1,0 +1,224 @@
+Content-type: text/html; charset=UTF-8
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of PIXYUTILS</TITLE>
+</HEAD><BODY>
+<H1>PIXYUTILS</H1>
+Section: User Commands  (1)<BR>Updated: 2022-06-25<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+pixyutils - command line graphics utilities
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>pixyutils</B> [OPTION]...
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+mtPixyUtils is a collection of command line functions for manipulating image files.  These functions can be executed using <B>pixyutils</B> or the function names directly as listed in the <B>SEE ALSO</B> section.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+
+<B>--version</B>
+<DL COMPACT><DT><DD>
+Output version information and exit.
+</DL>
+
+<P>
+
+<B>-com</B> STRING
+<DL COMPACT><DT><DD>
+Change command (with or without pixy prefix).  Available commands:
+pixyls, pixynew, pixyresize, pixyscale.
+</DL>
+
+<P>
+
+<B>-comp_jpeg</B> INTEGER
+<DL COMPACT><DT><DD>
+Set compression level for JPEG files. Default=85
+</DL>
+
+<P>
+
+<B>-comp_png</B> INTEGER
+<DL COMPACT><DT><DD>
+Set compression level for PNG files. Default=6
+</DL>
+
+<P>
+
+<B>-dir</B> STRING
+<DL COMPACT><DT><DD>
+Save frames to this directory.
+</DL>
+
+<P>
+
+<B>-fps</B> INTEGER
+<DL COMPACT><DT><DD>
+Set the frames per second. Default=30
+</DL>
+
+<P>
+
+<B>-frame0</B> INTEGER
+<DL COMPACT><DT><DD>
+Set the start frame. Default=0
+</DL>
+
+<P>
+
+<B>-height</B> INTEGER
+<DL COMPACT><DT><DD>
+Set new image width.
+</DL>
+
+<P>
+
+<B>-i</B> STRING
+<DL COMPACT><DT><DD>
+Load this input file.
+</DL>
+
+<P>
+
+<B>-imtype</B> STRING
+<DL COMPACT><DT><DD>
+Image format of new image (use 'list' to list types, default=indexed).
+</DL>
+
+<P>
+
+<B>-o</B> STRING
+<DL COMPACT><DT><DD>
+Save current image to this file (immediately).
+</DL>
+
+<P>
+
+<B>-otype</B> STRING
+<DL COMPACT><DT><DD>
+Output format of file (use 'list' to list types, default=none).
+</DL>
+
+<P>
+
+<B>-palette</B> INTEGER
+<DL COMPACT><DT><DD>
+Palette type for new image: 0=default=8 colours; 1=Greyscale; 2..6 Uniform;
+</DL>
+
+<P>
+
+<B>-prefix</B> STRING
+<DL COMPACT><DT><DD>
+Output file prefix.  Default=&quot;&quot;
+</DL>
+
+<P>
+
+<B>-scale_blocky</B>
+<DL COMPACT><DT><DD>
+With RGB images use the blocky scale method.
+</DL>
+
+<P>
+
+<B>-seconds</B> INTEGER
+<DL COMPACT><DT><DD>
+Set the fade duration. Default=1
+</DL>
+
+<P>
+
+<B>-v</B>
+<DL COMPACT><DT><DD>
+Verbose.
+</DL>
+
+<P>
+
+<B>-width</B> INTEGER
+<DL COMPACT><DT><DD>
+Set new image height.
+</DL>
+
+<P>
+
+<B>-x</B> INTEGER
+<DL COMPACT><DT><DD>
+Set image X.
+</DL>
+
+<P>
+
+<B>-y</B> INTEGER
+<DL COMPACT><DT><DD>
+Set image Y.
+</DL>
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+<P>
+
+<A HREF="../man1/pixycmp.1.html">pixycmp</A>(1),
+<A HREF="../man1/pixydelta.1.html">pixydelta</A>(1),
+<A HREF="../man1/pixyfade.1.html">pixyfade</A>(1),
+<A HREF="../man1/pixyls.1.html">pixyls</A>(1),
+<A HREF="../man1/pixynew.1.html">pixynew</A>(1),
+<A HREF="../man1/pixypica.1.html">pixypica</A>(1),
+<A HREF="../man1/pixyresize.1.html">pixyresize</A>(1),
+<A HREF="../man1/pixyriba.1.html">pixyriba</A>(1),
+<A HREF="../man1/pixyrida.1.html">pixyrida</A>(1),
+<A HREF="../man1/pixyrisa.1.html">pixyrisa</A>(1),
+<A HREF="../man1/pixyscale.1.html">pixyscale</A>(1),
+<A HREF="../man1/pixytwit.1.html">pixytwit</A>(1)
+<A NAME="lbAG">&nbsp;</A>
+<H2>HOMEPAGE</H2>
+
+<P>
+
+<A HREF="https://www.marktyler.org/">https://www.marktyler.org/</A>
+<A NAME="lbAH">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<P>
+
+Mark Tyler
+<P>
+
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">SEE ALSO</A><DD>
+<DT><A HREF="#lbAG">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAH">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://doc.marktyler.org/">man2html</A>,
+using the manual pages.<BR>
+Time: 15:07:56 GMT, June 25, 2022
+</BODY>
+</HTML>

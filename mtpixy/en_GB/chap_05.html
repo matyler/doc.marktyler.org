@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="http://txt2tags.org">
+<style>
+body{background-color:#fff;color:#000;}
+hr{background-color:#000;border:0;color:#000;}
+hr.heavy{height:5px;}
+hr.light{height:1px;}
+img{border:0;display:block;}
+img.right{margin:0 0 0 auto;}
+img.center{border:0;margin:0 auto;}
+table th,table td{padding:4px;}
+.center,header{text-align:center;}
+table.center {margin-left:auto; margin-right:auto;}
+.right{text-align:right;}
+.left{text-align:left;}
+.tableborder,.tableborder td,.tableborder th{border:1px solid #000;}
+.underline{text-decoration:underline;}
+</style>
+<TITLE>The mtPixy Handbook - Chapter 5 - Developer Notes</TITLE></head>
+<body>
+<header>
+<hgroup>
+</hgroup>
+</header>
+<article>
+
+<div class="body" id="body">
+<p>
+<a href="chap_04.html">Previous</a> | <a href="chap_00.html">Contents</a> | <a href="chap_A.html">Next</a>
+</p>
+
+<hr class="light">
+
+<section>
+<h1>5 Developer Notes</h1>
+
+<section id="SEC1">
+<h2>5.1 mtPixyUtils</h2>
+
+<p>
+mtPixyUtils is a collection of command line programs to manipulate image files.  Here is a list of the programs provided:
+</p>
+
+<table class="tableborder">
+<tr>
+<td><strong>Program</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>pixycmp</td>
+<td>Compare two images.</td>
+</tr>
+<tr>
+<td>pixydelta</td>
+<td>Get pixel delta's between two images.</td>
+</tr>
+<tr>
+<td>pixyfade</td>
+<td>Create a fade between two images.</td>
+</tr>
+<tr>
+<td>pixyls</td>
+<td>List image file information.</td>
+</tr>
+<tr>
+<td>pixynew</td>
+<td>Create a new image.</td>
+</tr>
+<tr>
+<td>pixypica</td>
+<td>Analyse an indexed palette image.</td>
+</tr>
+<tr>
+<td>pixyresize</td>
+<td>Resize an image.</td>
+</tr>
+<tr>
+<td>pixyriba</td>
+<td>Analyse an RGB image.</td>
+</tr>
+<tr>
+<td>pixyrida</td>
+<td>Analyse an RGB image.</td>
+</tr>
+<tr>
+<td>pixyrisa</td>
+<td>Analyse an RGB image.</td>
+</tr>
+<tr>
+<td>pixyscale</td>
+<td>Scale an image.</td>
+</tr>
+<tr>
+<td>pixytwit</td>
+<td>Prepare an image for Twitter.</td>
+</tr>
+<tr>
+<td>pixyutils</td>
+<td>Main program which can be run directly or by using a symlink.</td>
+</tr>
+</table>
+
+<p>
+For more detailed information use:
+</p>
+
+<pre>
+man pixyutils
+</pre>
+
+</section>
+<section id="SEC2">
+<h2>5.2 mtPixyCLI</h2>
+
+<p>
+mtPixyCLI is a program that provides image editing functionality via a Command Line Interface (CLI).  It offers exactly the same functions as the GUI based mtPixy, but instead uses text commands.
+</p>
+<p>
+Both GUI's and CLI's have value, and allow particular jobs to be done more efficiently.  For example I use mtPixyCLI as part of the testing phase before I release the whole mtCellEdit suite.  I have created a number of tests in the form of scripts which test each part of the core libraries.  This exposes any problems that may have crept into the code, and is a good form of regression testing.
+</p>
+
+<section id="SEC21">
+<h3>5.2.1 Commands</h3>
+
+<p>
+mtPixyCLI reads instructions from the user via GNU Readline.  This offers useful interactive facilities like using the up and down arrows to access previous commands.
+</p>
+<p>
+It is also possible to run a script from the command line like these examples:
+</p>
+
+<pre>
+cat script.txt | mtpixycli
+mtpixycli &lt; script.txt
+mtpixycli &lt; script.txt &gt; log.txt 2&gt;&amp;1
+</pre>
+
+<p>
+Here is the complete list of commands that mtPixyCLI accepts:
+</p>
+
+<table class="tableborder">
+<tr>
+<td><strong>Command</strong></td>
+<td><strong>Arguments</strong></td>
+<td><strong>Notes</strong></td>
+</tr>
+<tr>
+<td>canvas flip_h</td>
+<td></td>
+<td>Flip canvas horizontally</td>
+</tr>
+<tr>
+<td>canvas flip_v</td>
+<td></td>
+<td>Flip canvas vertically</td>
+</tr>
+<tr>
+<td>canvas indexed</td>
+<td>&lt;DITHER none <strong>|</strong> basic <strong>|</strong> floyd&gt;</td>
+<td>Convert canvas from RGB to Indexed</td>
+</tr>
+<tr>
+<td>canvas rgb</td>
+<td></td>
+<td>Convert canvas from Indexed to RGB</td>
+</tr>
+<tr>
+<td>canvas rotate_a</td>
+<td></td>
+<td>Rotate canvas anticlockwise</td>
+</tr>
+<tr>
+<td>canvas rotate_c</td>
+<td></td>
+<td>Rotate canvas clockwise</td>
+</tr>
+<tr>
+<td>clip flip_h</td>
+<td></td>
+<td>Flip clipboard horizontally</td>
+</tr>
+<tr>
+<td>clip flip_v</td>
+<td></td>
+<td>Flip clipboard vertically</td>
+</tr>
+<tr>
+<td>clip load</td>
+<td>&lt;1..12&gt;</td>
+<td>Load clipboard from disk</td>
+</tr>
+<tr>
+<td>clip rotate_a</td>
+<td></td>
+<td>Rotate clipboard anticlockwise</td>
+</tr>
+<tr>
+<td>clip rotate_c</td>
+<td></td>
+<td>Rotate clipboard clockwise</td>
+</tr>
+<tr>
+<td>clip save</td>
+<td>&lt;1..12&gt;</td>
+<td>Save clipboard to disk</td>
+</tr>
+<tr>
+<td>copy</td>
+<td></td>
+<td>Copy the selection to the clipboard</td>
+</tr>
+<tr>
+<td>crop</td>
+<td></td>
+<td>Crop the image canvas to the selection</td>
+</tr>
+<tr>
+<td>cut</td>
+<td></td>
+<td>Cut the selection to the clipboard</td>
+</tr>
+<tr>
+<td>delete alpha</td>
+<td></td>
+<td>Remove the alpha channel</td>
+</tr>
+<tr>
+<td>effect bacteria</td>
+<td>&lt;STRENGTH 1..100&gt;</td>
+<td>Indexed canvas only</td>
+</tr>
+<tr>
+<td>effect edge_detect</td>
+<td></td>
+<td>RGB canvas only</td>
+</tr>
+<tr>
+<td>effect emboss</td>
+<td></td>
+<td>RGB canvas only</td>
+</tr>
+<tr>
+<td>effect invert</td>
+</tr>
+<tr>
+<td>effect sharpen</td>
+<td>&lt;STRENGTH 1..100&gt;</td>
+<td>RGB canvas only</td>
+</tr>
+<tr>
+<td>effect soften</td>
+<td>&lt;STRENGTH 1..100&gt;</td>
+<td>RGB canvas only</td>
+</tr>
+<tr>
+<td>effect trans_color</td>
+<td>&lt;GAMMA -100..100&gt; &lt;BRIGHTNESS -100..100&gt; &lt;CONTRAST -100..100&gt; &lt;SATURATION -100..100&gt; &lt;HUE -1529..1529&gt; &lt;POSTERIZE 1..8&gt;</td>
+<td>Transform the canvas colour</td>
+</tr>
+<tr>
+<td>fill</td>
+<td></td>
+<td>Fill the current selection</td>
+</tr>
+<tr>
+<td>floodfill</td>
+<td>&lt;X 0..&gt; &lt;Y 0..&gt;</td>
+</tr>
+<tr>
+<td>help</td>
+<td>[ARG]...</td>
+<td>Get help on these commands</td>
+</tr>
+<tr>
+<td>info</td>
+<td></td>
+<td>Print information about this image</td>
+</tr>
+<tr>
+<td>lasso</td>
+<td></td>
+<td>Lasso the current selection</td>
+</tr>
+<tr>
+<td>load</td>
+<td>&lt;OS FILENAME&gt;</td>
+<td>Load a file from disk</td>
+</tr>
+<tr>
+<td>new</td>
+<td>&lt;WIDTH 1..32767&gt; &lt;HEIGHT 1..32767&gt; &lt;rgb <strong>|</strong> indexed&gt;</td>
+<td>Create a new image</td>
+</tr>
+<tr>
+<td>outline</td>
+<td></td>
+<td>Draw an outline around the current selection</td>
+</tr>
+<tr>
+<td>paint</td>
+<td>&lt; &lt;X 0..&gt; &lt;Y 0..&gt; &gt;...</td>
+<td>Paint a straight line between these points</td>
+</tr>
+<tr>
+<td>palette color</td>
+<td>&lt;INDEX 0..255&gt; &lt;RED 0..255&gt; &lt;GREEN 0..255&gt; &lt;BLUE 0..255&gt;</td>
+<td>Set a palette colour</td>
+</tr>
+<tr>
+<td>palette del_unused</td>
+<td></td>
+<td>Remove unused palette items. Indexed canvas only.</td>
+</tr>
+<tr>
+<td>palette from_canvas</td>
+<td></td>
+<td>Create palette from the colours on the canvas.  RGB canvas which has up to 256 colours only.</td>
+</tr>
+<tr>
+<td>palette gradient</td>
+<td></td>
+<td>Create a palette gradient from colour A to B</td>
+</tr>
+<tr>
+<td>palette load</td>
+<td>&lt;OS FILENAME&gt;</td>
+<td>Load a palette from a GPL file</td>
+</tr>
+<tr>
+<td>palette mask all</td>
+<td></td>
+<td>Mask all palette items</td>
+</tr>
+<tr>
+<td>palette mask index</td>
+<td>&lt;0..255&gt;</td>
+<td>Mask this palette item</td>
+</tr>
+<tr>
+<td>palette merge_dups</td>
+<td></td>
+<td>Merge duplicate palette items. Indexed canvas only.</td>
+</tr>
+<tr>
+<td>palette move</td>
+<td>&lt;FROM INDEX 0..255&gt; &lt;TO INDEX 0..255&gt;</td>
+<td>Move a palette item</td>
+</tr>
+<tr>
+<td>palette quantize</td>
+<td></td>
+<td>Quantize the image to the palette.  RGB canvas only.</td>
+</tr>
+<tr>
+<td>palette save</td>
+<td>&lt;OS FILENAME&gt;</td>
+<td>Save palette to a GPL file</td>
+</tr>
+<tr>
+<td>palette set</td>
+<td>&lt;uniform <strong>|</strong> balanced&gt; &lt;2..6&gt;</td>
+<td>Create a new palette</td>
+</tr>
+<tr>
+<td>palette size</td>
+<td>&lt;2..255&gt;</td>
+<td>Set the palette size</td>
+</tr>
+<tr>
+<td>palette sort</td>
+<td>&lt;START 0..255&gt; &lt;FINISH 0..255&gt; &lt;hue <strong>|</strong> saturation <strong>|</strong> value <strong>|</strong> min <strong>|</strong> brightness <strong>|</strong> red <strong>|</strong> green <strong>|</strong> blue <strong>|</strong> frequency &gt; [reverse]</td>
+<td>Sort the palette as per the criteria given</td>
+</tr>
+<tr>
+<td>palette unmask all</td>
+<td></td>
+<td>Unmask all palette items</td>
+</tr>
+<tr>
+<td>palette unmask index</td>
+<td>&lt;0..255&gt;</td>
+<td>Unmask this palette item</td>
+</tr>
+<tr>
+<td>paste</td>
+<td>&lt;X -32766..&gt; &lt;Y -32766..&gt;</td>
+<td>Paste the clipboard here on the canvas</td>
+</tr>
+<tr>
+<td>q</td>
+<td></td>
+<td>Quit the program</td>
+</tr>
+<tr>
+<td>quit</td>
+<td></td>
+<td>Quit the program</td>
+</tr>
+<tr>
+<td>redo</td>
+</tr>
+<tr>
+<td>resize</td>
+<td>&lt;X -32766..32767&gt; &lt;Y -32766..32767&gt; &lt;WIDTH 1..32767&gt; &lt;HEIGHT 1..32767&gt;</td>
+<td>Resize the canvas</td>
+</tr>
+<tr>
+<td>save</td>
+<td></td>
+<td>Save the file</td>
+</tr>
+<tr>
+<td>save as</td>
+<td>&lt;OS FILENAME&gt; [ &lt;FILE TYPE bmp <strong>|</strong> png <strong>|</strong> jpeg <strong>|</strong> gif&gt; [ COMPRESSION 0..9 <strong>|</strong> 0..100 ] ]</td>
+<td>Save the file as per the criteria</td>
+</tr>
+<tr>
+<td>save undo</td>
+<td>&lt;OS FILENAME&gt;</td>
+<td>Save undo images</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>&lt;WIDTH 1..32767&gt; &lt;HEIGHT 1..32767&gt; [smooth]</td>
+<td>Scale the canvas</td>
+</tr>
+<tr>
+<td>select all</td>
+<td></td>
+<td>Select the whole canvas</td>
+</tr>
+<tr>
+<td>select polygon</td>
+<td>&lt; &lt;X 0..&gt; &lt;Y 0..&gt; &gt;...</td>
+<td>Select a polygon on the canvas</td>
+</tr>
+<tr>
+<td>select rectangle</td>
+<td>&lt;X 0..&gt; &lt;Y 0..&gt; &lt;WIDTH 1..&gt; &lt;HEIGHT 1..&gt;</td>
+<td>Select a rectangle on the canvas</td>
+</tr>
+<tr>
+<td>set brush flow</td>
+<td>&lt;1..1000&gt;</td>
+</tr>
+<tr>
+<td>set brush pattern</td>
+<td>&lt;0..&gt;</td>
+</tr>
+<tr>
+<td>set brush shape</td>
+<td>&lt;0..&gt;</td>
+</tr>
+<tr>
+<td>set brush spacing</td>
+<td>&lt;0..100&gt;</td>
+</tr>
+<tr>
+<td>set color a</td>
+<td>&lt;0..255&gt;</td>
+<td>Set colour A from the palette index</td>
+</tr>
+<tr>
+<td>set color b</td>
+<td>&lt;0..255&gt;</td>
+<td>Set colour B from the palette index</td>
+</tr>
+<tr>
+<td>set color swap</td>
+<td></td>
+<td>Swap colour A and B</td>
+</tr>
+<tr>
+<td>set file</td>
+<td>&lt;0..4&gt;</td>
+<td>Set the current file in memory</td>
+</tr>
+<tr>
+<td>text</td>
+<td>&lt;STRING&gt; &lt;FONT NAME&gt; &lt;FONT SIZE 1..100&gt; [bold] [italic] [underline] [strikethrough]</td>
+<td>Put this text into the clipboard</td>
+</tr>
+<tr>
+<td>undo</td>
+</tr>
+</table>
+
+<hr class="light">
+
+<p>
+<a href="chap_04.html">Previous</a> | <a href="chap_00.html">Contents</a> | <a href="chap_A.html">Next</a>
+</p>
+</section>
+</section>
+</section>
+</div>
+
+<!-- html code generated by txt2tags 3.4 (http://txt2tags.org) -->
+<!-- cmdline: txt2tags -t html -o chap_05.html chap_05.t2t -->
+</article></body></html>

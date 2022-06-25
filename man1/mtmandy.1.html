@@ -1,0 +1,185 @@
+Content-type: text/html; charset=UTF-8
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of MTMANDY</TITLE>
+</HEAD><BODY>
+<H1>MTMANDY</H1>
+Section: User Commands  (1)<BR>Updated: 2022-06-25<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+mtmandy - mandelbrot set explorer
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>mtmandy</B> [ <B>OPTIONS</B> ]... [ FILENAME ]
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+mtmandy visually explores the Mandelbrot set.
+Left mouse click to move the centre of the zoom box, right click to zoom in.
+Use the <B>Arrow Keys</B> to move, with <B>Shift</B> to move more quickly, or the
+<B>Ctrl</B> key to shift the view in that direction.
+The <B>F1</B> key prints the current position to stdout.
+The <B>s</B> key dumps the current image to the user's home directory.
+The <B>Home</B> key returns to the start position.
+The <B>Delete</B> or <B>Escape</B> keys terminate the current processing job.
+The <B>Escape</B> key terminates the program, when not processing.
+The <B>End</B> key Redraws the current view.
+Zoom in and out using the keys <B>Page Up</B>, <B>Page Down</B>, <B>Enter</B>, <B>+</B>, <B>-</B>.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+
+<B>--version</B>
+<DL COMPACT><DT><DD>
+Output version information and exit.
+</DL>
+
+<P>
+
+<B>-cx</B> DECIMAL
+<DL COMPACT><DT><DD>
+The X coordinate for the centre of the plot (-2.0 to 2.0). Default = 0.0.
+</DL>
+
+<P>
+
+<B>-cy</B> DECIMAL
+<DL COMPACT><DT><DD>
+The Y coordinate for the centre of the plot (-2.0 to 2.0). Default = 0.0.
+</DL>
+
+<P>
+
+<B>-depth</B> INTEGER
+<DL COMPACT><DT><DD>
+Maximum depth of iterations (256 to 16384). Default = 1024.
+</DL>
+
+<P>
+
+<B>-dir</B> STRING
+<DL COMPACT><DT><DD>
+Output directory for saving animation frames.
+</DL>
+
+<P>
+
+<B>-fps</B> INTEGER
+<DL COMPACT><DT><DD>
+Frames per second of the animation (10 to 120). Default = 60.
+</DL>
+
+<P>
+
+<B>-oh</B> INTEGER
+<DL COMPACT><DT><DD>
+Output pixmap height (128 to 15360). Default = 500.
+</DL>
+
+<P>
+
+<B>-ow</B> INTEGER
+<DL COMPACT><DT><DD>
+Output pixmap width (128 to 15360). Default = 500.
+</DL>
+
+<P>
+
+<B>-prefs</B> STRING
+<DL COMPACT><DT><DD>
+Use this file for GUI program preferences (e.g. window position).
+</DL>
+
+<P>
+
+<B>-range</B> DECIMAL
+<DL COMPACT><DT><DD>
+Range of the plot width (maximum 20.0). Default = 4.0.
+</DL>
+
+<P>
+
+<B>-threads</B> INTEGER
+<DL COMPACT><DT><DD>
+Use this number of threads for the calculations (1 to 16). Default = 0
+which detects the number of available of threads on the CPU.
+</DL>
+
+<P>
+
+<B>-tsv</B> STRING
+<DL COMPACT><DT><DD>
+Create an animation using this TSV file.
+</DL>
+
+<P>
+
+<B>-v</B>
+<DL COMPACT><DT><DD>
+Verbose.
+</DL>
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>EXAMPLE</H2>
+
+<P>
+
+<B>mtmandy</B> -cx 0.5 -cy 0.2 -threads 5
+<A NAME="lbAG">&nbsp;</A>
+<H2>FILES</H2>
+
+<P>
+
+~/.config/mtmandy/prefs.txt
+<DL COMPACT><DT><DD>
+Default file used for storing user preferences.
+</DL>
+
+<A NAME="lbAH">&nbsp;</A>
+<H2>HOMEPAGE</H2>
+
+<P>
+
+<A HREF="https://www.marktyler.org/">https://www.marktyler.org/</A>
+<A NAME="lbAI">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<P>
+
+Mark Tyler
+<P>
+
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">EXAMPLE</A><DD>
+<DT><A HREF="#lbAG">FILES</A><DD>
+<DT><A HREF="#lbAH">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAI">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://doc.marktyler.org/">man2html</A>,
+using the manual pages.<BR>
+Time: 15:07:56 GMT, June 25, 2022
+</BODY>
+</HTML>

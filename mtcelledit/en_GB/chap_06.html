@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="http://txt2tags.org">
+<style>
+body{background-color:#fff;color:#000;}
+hr{background-color:#000;border:0;color:#000;}
+hr.heavy{height:5px;}
+hr.light{height:1px;}
+img{border:0;display:block;}
+img.right{margin:0 0 0 auto;}
+img.center{border:0;margin:0 auto;}
+table th,table td{padding:4px;}
+.center,header{text-align:center;}
+table.center {margin-left:auto; margin-right:auto;}
+.right{text-align:right;}
+.left{text-align:left;}
+.tableborder,.tableborder td,.tableborder th{border:1px solid #000;}
+.underline{text-decoration:underline;}
+</style>
+<TITLE>The mtCellEdit Handbook - Chapter 6 - mtCedCLI</TITLE></head>
+<body>
+<header>
+<hgroup>
+</hgroup>
+</header>
+<article>
+
+<div class="body" id="body">
+<p>
+<a href="chap_05.html">Previous</a> | <a href="chap_00.html">Contents</a> | <a href="chap_A.html">Next</a>
+</p>
+
+<hr class="light">
+
+<section>
+<h1>6. mtCedCLI</h1>
+
+<p>
+mtCedCLI is a program that provides spreadsheet functionality via a Command Line Interface (CLI).  It offers exactly the same functions as the GUI based mtCellEdit, but instead uses text commands.
+</p>
+<p>
+Both GUI's and CLI's have value, and allow particular jobs to be done more efficiently.  For example I use mtCedCLI as part of the testing phase before I release the whole mtCellEdit suite.  I have created a number of tests in the form of scripts which test each part of the core libraries.  This exposes any problems that may have crept into the code, and is a good form of regression testing.
+</p>
+
+<section id="SEC1">
+<h2>6.1 Commands</h2>
+
+<p>
+mtCedCLI reads instructions from the user via GNU Readline.  This offers useful interactive facilities like using the up and down arrows to access previous commands.
+</p>
+<p>
+It is also possible to run a script from the command line like these examples:
+</p>
+
+<pre>
+cat script.txt | mtcedcli
+mtcedcli &lt; script.txt
+mtcedcli &lt; script.txt &gt; log.txt 2&gt;&amp;1
+</pre>
+
+<p>
+Here is the complete list of commands that mtCedCLI accepts:
+</p>
+
+<table class="tableborder">
+<tr>
+<td><strong>Command</strong></td>
+<td><strong>Arguments</strong></td>
+<td><strong>Notes</strong></td>
+</tr>
+<tr>
+<td>about</td>
+<td></td>
+<td>About the program</td>
+</tr>
+<tr>
+<td>clear content</td>
+<td></td>
+<td>Clear cell content in current selection</td>
+</tr>
+<tr>
+<td>clear prefs</td>
+<td></td>
+<td>Clear cell preferences in current selection</td>
+</tr>
+<tr>
+<td>clear</td>
+<td></td>
+<td>Clear cells in current selection</td>
+</tr>
+<tr>
+<td>clip flip_h</td>
+<td></td>
+<td>Horizontal flip of clipboard</td>
+</tr>
+<tr>
+<td>clip flip_v</td>
+<td></td>
+<td>Vertical flip of clipboard</td>
+</tr>
+<tr>
+<td>clip load</td>
+<td>&lt;OS FILENAME&gt;</td>
+<td>Load clipboard from a file</td>
+</tr>
+<tr>
+<td>clip save</td>
+<td>&lt;OS FILENAME&gt;</td>
+<td>Save the current clipboard to this file</td>
+</tr>
+<tr>
+<td>clip rotate_a</td>
+<td></td>
+<td>Rotate the clipboard anticlockwise by 90 degrees</td>
+</tr>
+<tr>
+<td>clip rotate_c</td>
+<td></td>
+<td>Rotate the clipboard clockwise by 90 degrees</td>
+</tr>
+<tr>
+<td>clip transpose</td>
+<td></td>
+<td>Transpose the clipboard</td>
+</tr>
+<tr>
+<td>copy output</td>
+<td></td>
+<td>Copy the output of the currently selected cells to the clipboard</td>
+</tr>
+<tr>
+<td>copy values</td>
+<td></td>
+<td>Copy the values of the currently selected cells to the clipboard</td>
+</tr>
+<tr>
+<td>copy</td>
+<td></td>
+<td>Copy the currently selected cells to the clipboard</td>
+</tr>
+<tr>
+<td>cut</td>
+<td></td>
+<td>Copy the currently selected cells to the clipboard and clear the cells</td>
+</tr>
+<tr>
+<td>delete column</td>
+<td></td>
+<td>Delete the currently selected column(s)</td>
+</tr>
+<tr>
+<td>delete graph</td>
+<td></td>
+<td>Delete the currently active graph</td>
+</tr>
+<tr>
+<td>delete row</td>
+<td></td>
+<td>Delete the currently selected row(s)</td>
+</tr>
+<tr>
+<td>delete sheet</td>
+<td></td>
+<td>Delete the currently active sheet</td>
+</tr>
+<tr>
+<td>duplicate sheet</td>
+<td></td>
+<td>Duplicate the currently active sheet</td>
+</tr>
+<tr>
+<td>export graph</td>
+<td>&lt;OS FILENAME&gt;</td>
+<td>Export the current graph to this file</td>
+</tr>
+<tr>
+<td>export output graph</td>
+<td>&lt;OS FILENAME&gt; &lt;FILETYPE&gt;</td>
+<td>Export the current graph output to this file and type (as per <a href="chap_05.html#SEC53">5.5.3</a>)</td>
+</tr>
+<tr>
+<td>export output sheet</td>
+<td>&lt;OS FILENAME&gt; &lt;FILETYPE&gt;</td>
+<td>Export the current sheet output to this file and type (as per <a href="chap_05.html#SEC54">5.5.4</a>)</td>
+</tr>
+<tr>
+<td>export sheet</td>
+<td>&lt;OS FILENAME&gt; &lt;FILETYPE&gt;</td>
+<td>Export the current sheet to this file and type (as per <a href="chap_05.html#SEC55">5.5.5</a>)</td>
+</tr>
+<tr>
+<td>find</td>
+<td>&lt;TEXT&gt; [wild] [case] [value] [all]</td>
+<td>Find cells with this text (possibly using the current selection)</td>
+</tr>
+<tr>
+<td>help</td>
+<td>[ARG]...</td>
+<td>Display help on this command</td>
+</tr>
+<tr>
+<td>import book</td>
+<td>&lt;OS FILENAME&gt;</td>
+<td>Import a book from a file into the current book</td>
+</tr>
+<tr>
+<td>import graph</td>
+<td>&lt;GRAPH NAME&gt; &lt;OS FILENAME&gt;</td>
+<td>Import a file as a graph and give it this name</td>
+</tr>
+<tr>
+<td>info</td>
+<td></td>
+<td>Display current information</td>
+</tr>
+<tr>
+<td>insert column</td>
+<td>[clip]</td>
+<td>Insert column(s) according to the current selection (or clipboard width)</td>
+</tr>
+<tr>
+<td>insert row</td>
+<td>[clip]</td>
+<td>Insert row(s) according to the current selection (or clipboard height)</td>
+</tr>
+<tr>
+<td>list files</td>
+<td></td>
+<td>List files in the active book</td>
+</tr>
+<tr>
+<td>list graphs</td>
+<td></td>
+<td>List graphs in the active book</td>
+</tr>
+<tr>
+<td>list sheets</td>
+<td></td>
+<td>List sheets in the active book</td>
+</tr>
+<tr>
+<td>load</td>
+<td>&lt;OS FILENAME&gt; [ csv <strong>|</strong> tsv ]</td>
+<td>Load a new book</td>
+</tr>
+<tr>
+<td>new book</td>
+<td></td>
+<td>Destroy the current book and start a new book with a sheet called "Sheet 1"</td>
+</tr>
+<tr>
+<td>new sheet</td>
+<td></td>
+<td>Add a new empty sheet to the book</td>
+</tr>
+<tr>
+<td>new</td>
+<td></td>
+<td>Destroy the current book and start a new book with a sheet called "Sheet 1"</td>
+</tr>
+<tr>
+<td>paste content</td>
+<td></td>
+<td>Paste clipboard contents onto the current selection</td>
+</tr>
+<tr>
+<td>paste prefs</td>
+<td></td>
+<td>Paste clipboard preferences onto the current selection</td>
+</tr>
+<tr>
+<td>paste</td>
+<td></td>
+<td>Paste clipboard onto the current selection</td>
+</tr>
+<tr>
+<td>print cell num</td>
+<td></td>
+<td>Print the cell number for all the selected cells</td>
+</tr>
+<tr>
+<td>print cell text</td>
+<td></td>
+<td>Print the cell text for all the selected cells</td>
+</tr>
+<tr>
+<td>print cell type</td>
+<td></td>
+<td>Print the cell type for all the selected cells</td>
+</tr>
+<tr>
+<td>print prefs book</td>
+<td></td>
+<td>Print the book preferences</td>
+</tr>
+<tr>
+<td>print prefs cell</td>
+<td></td>
+<td>Print the cell preferences in all the selected cells (that are not default)</td>
+</tr>
+<tr>
+<td>print prefs sheet</td>
+<td></td>
+<td>Print sheet preferences</td>
+</tr>
+<tr>
+<td>print prefs state</td>
+<td></td>
+<td>Print state preferences</td>
+</tr>
+<tr>
+<td>print</td>
+<td></td>
+<td>Print the cell output for all the selected cells</td>
+</tr>
+<tr>
+<td>q</td>
+<td></td>
+<td>Quit the program</td>
+</tr>
+<tr>
+<td>quit</td>
+<td></td>
+<td>Quit the program</td>
+</tr>
+<tr>
+<td>recalc book</td>
+<td></td>
+<td>Recalculate the book</td>
+</tr>
+<tr>
+<td>recalc sheet</td>
+<td></td>
+<td>Recalculate the sheet</td>
+</tr>
+<tr>
+<td>recalc</td>
+<td></td>
+<td>Recalculate the sheet</td>
+</tr>
+<tr>
+<td>redo</td>
+<td></td>
+<td>Redo next sheet action</td>
+</tr>
+<tr>
+<td>rename graph</td>
+<td>&lt;NEW NAME&gt;</td>
+<td>Rename the current graph</td>
+</tr>
+<tr>
+<td>rename sheet</td>
+<td>&lt;NEW NAME&gt;</td>
+<td>Rename the current sheet</td>
+</tr>
+<tr>
+<td>save</td>
+<td></td>
+<td>Save the current book</td>
+</tr>
+<tr>
+<td>save as</td>
+<td>&lt;OS FILENAME&gt; [FILETYPE]</td>
+<td>Save the current book to this file (optionally changing the type as per <a href="chap_05.html#SEC52">5.5.2</a>)</td>
+</tr>
+<tr>
+<td>select</td>
+<td>&lt; all <strong>|</strong> CELLREF[:CELLREF] &gt;</td>
+<td>Set the current cursor selection</td>
+</tr>
+<tr>
+<td>set 2dyear</td>
+<td>[ YEAR START ]</td>
+<td>Change the currently selected cells if they contain a date with a 2 digit year</td>
+</tr>
+<tr>
+<td>set book</td>
+<td>&lt;INTEGER&gt;</td>
+<td>Change the current active book (0..4)</td>
+</tr>
+<tr>
+<td>set cell</td>
+<td>&lt;CELL CONTENT&gt;</td>
+<td>Set the cell text</td>
+</tr>
+<tr>
+<td>set graph</td>
+<td>&lt;GRAPH NAME&gt;</td>
+<td>Set the current graph</td>
+</tr>
+<tr>
+<td>set prefs book</td>
+<td>&lt;KEY&gt; &lt;DATA&gt;</td>
+<td>Set book preference (as per <a href="chap_A.html#SEC83">A.8.3</a>)</td>
+</tr>
+<tr>
+<td>set prefs cell</td>
+<td>&lt;KEY&gt; &lt;DATA&gt;</td>
+<td>Set currently selected cell preferences (as per <a href="chap_A.html#SEC81">A.8.1</a>)</td>
+</tr>
+<tr>
+<td>set prefs cellborder</td>
+<td>&lt;DATA&gt;</td>
+<td>Set currently selected cell border preferences (as per <a href="chap_05.html#SEC56">5.5.6</a>)</td>
+</tr>
+<tr>
+<td>set prefs sheet</td>
+<td>&lt;KEY&gt; &lt;DATA&gt;</td>
+<td>Set the preferences for the current sheet (as per <a href="chap_A.html#SEC82">A.8.2</a>)</td>
+</tr>
+<tr>
+<td>set prefs state</td>
+<td>&lt;KEY&gt; &lt;DATA&gt;</td>
+<td>Set the state preferences (as per <a href="chap_A.html#SEC84">A.8.4</a>)</td>
+</tr>
+<tr>
+<td>set sheet</td>
+<td>&lt;SHEET NAME&gt;</td>
+<td>Set active sheet</td>
+</tr>
+<tr>
+<td>set width</td>
+<td>&lt; auto <strong>|</strong> INTEGER &gt;</td>
+<td>Set selected columns width as integer &gt; 0 (0=default=10), or by calculating the current maximum width</td>
+</tr>
+<tr>
+<td>sort column</td>
+<td>&lt;EXPRESSION&gt;</td>
+<td>Sort selected columns by expression as per <a href="chap_05.html#SEC57">5.5.7</a></td>
+</tr>
+<tr>
+<td>sort row</td>
+<td>&lt;EXPRESSION&gt;</td>
+<td>Sort selected rows by expression as per <a href="chap_05.html#SEC57">5.5.7</a></td>
+</tr>
+<tr>
+<td>undo</td>
+<td></td>
+<td>Undo last sheet action</td>
+</tr>
+</table>
+
+</section>
+<section id="SEC2">
+<h2>6.2 Book File Types</h2>
+
+<table class="tableborder">
+<tr>
+<td>tsv_book</td>
+</tr>
+<tr>
+<td>tsv_value_book</td>
+</tr>
+<tr>
+<td>ledger_book</td>
+</tr>
+<tr>
+<td>ledger_value_book</td>
+</tr>
+</table>
+
+</section>
+<section id="SEC3">
+<h2>6.3 Graph Output Types</h2>
+
+<table class="tableborder">
+<tr>
+<td>eps</td>
+</tr>
+<tr>
+<td>pdf</td>
+</tr>
+<tr>
+<td>png</td>
+</tr>
+<tr>
+<td>ps</td>
+</tr>
+<tr>
+<td>svg</td>
+</tr>
+</table>
+
+</section>
+<section id="SEC4">
+<h2>6.4 Sheet Output Types</h2>
+
+<table class="tableborder">
+<tr>
+<td>eps</td>
+</tr>
+<tr>
+<td>html</td>
+</tr>
+<tr>
+<td>pdf</td>
+</tr>
+<tr>
+<td>pdf_paged</td>
+</tr>
+<tr>
+<td>png</td>
+</tr>
+<tr>
+<td>ps</td>
+</tr>
+<tr>
+<td>svg</td>
+</tr>
+<tr>
+<td>tsv</td>
+</tr>
+<tr>
+<td>tsv_q</td>
+</tr>
+</table>
+
+</section>
+<section id="SEC5">
+<h2>6.5 Sheet Types</h2>
+
+<table class="tableborder">
+<tr>
+<td>tsv</td>
+</tr>
+<tr>
+<td>tsv_gz</td>
+</tr>
+<tr>
+<td>tsv_noq</td>
+</tr>
+<tr>
+<td>tsv_val</td>
+</tr>
+<tr>
+<td>tsv_val_gz</td>
+</tr>
+<tr>
+<td>tsv_val_noq</td>
+</tr>
+<tr>
+<td>csv</td>
+</tr>
+<tr>
+<td>csv_noq</td>
+</tr>
+<tr>
+<td>csv_val</td>
+</tr>
+<tr>
+<td>csv_val_noq</td>
+</tr>
+<tr>
+<td>ledger</td>
+</tr>
+<tr>
+<td>ledger_gz</td>
+</tr>
+<tr>
+<td>ledger_val</td>
+</tr>
+<tr>
+<td>ledger_val_gz</td>
+</tr>
+</table>
+
+</section>
+<section id="SEC6">
+<h2>6.6 Cell Border Codes</h2>
+
+<table class="tableborder">
+<tr>
+<td>-1</td>
+<td>Remove all borders</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>Thin Outside</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Thick Outside</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>Double Outside</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>Thin Top And Bottom</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>Thick Top And Bottom</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>Double Top And Bottom</td>
+</tr>
+</table>
+
+<pre>
+</pre>
+
+<table class="tableborder">
+<tr>
+<td></td>
+<td><strong>Horizontal</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>Clear Top</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Clear Middle</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Clear Bottom</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Thin Top</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thin Middle</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Thin Bottom</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Thick Top</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Thick Middle</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Thick Bottom</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Double Top</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Double Middle</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Double Bottom</td>
+</tr>
+</table>
+
+<pre>
+</pre>
+
+<table class="tableborder">
+<tr>
+<td></td>
+<td><strong>Vertical</strong></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Clear Left</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Clear Centre</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Clear Right</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Thin Left</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Thin Centre</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Thin Right</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Thick Left</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Thick Centre</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Thick Right</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Double Left</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Double Centre</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Double Right</td>
+</tr>
+</table>
+
+</section>
+<section id="SEC7">
+<h2>6.7 Sorting Expressions</h2>
+
+<p>
+&lt;INTEGER&gt; , &lt; a | d &gt; [c] [ , ... ]
+</p>
+<p>
+For example, expression <strong>1,ac,2,d</strong> sorts by row/column 1 (ascending, case sensitive), then row/column 2 (descending).
+</p>
+
+</section>
+<section id="SEC8">
+<h2>6.8 Shell Scripts</h2>
+
+<p>
+Because the interface to mtCedCLI is just text, this means that shell scripts can control the program.
+</p>
+
+<section id="SEC81">
+<h3>6.8.1 Putting Several Sheets into a Book</h3>
+
+<p>
+<a href="../shawk/cedsheetbook.sh">DOWNLOAD FILE</a>
+</p>
+
+<pre>
+#!/bin/bash
+# cedsheetbook.sh - Puts sheet files into a single book file
+# usage: cedsheetbook.sh BOOKFILENAME SHEETFILE... | mtcedcli
+# e.g. cedsheetbook.sh ~/output.zip *.tsv *.csv | mtcedcli
+# by Mark Tyler 19th February 2013
+
+
+echo "delete sheet"
+echo "save as \"$1\""
+
+shift
+
+while [ "$1" != "" ]
+do
+	echo "import book \"$1\""
+	shift
+done
+
+echo "save"
+</pre>
+
+<p>
+The handy thing with this approach is that you can dry run the script first
+by using:
+</p>
+
+<pre>
+./cedsheetbook.sh ~/output.zip *.tsv *.csv
+</pre>
+
+<p>
+If you are happy with the text output then you can commit the actions with:
+</p>
+
+<pre>
+./cedsheetbook.sh ~/output.zip *.tsv *.csv | mtcedcli
+</pre>
+
+</section>
+<section id="SEC82">
+<h3>6.8.2 Extracting Sheets From a Book</h3>
+
+<p>
+The following script does the reverse of the first script.
+It reads a ZIP file and extracts all of the sheets to TSV files in the
+given directory.
+</p>
+<p>
+<a href="../shawk/cedbooksplit.sh">DOWNLOAD FILE</a>
+</p>
+
+<pre>
+#!/bin/bash
+# cedbooksplit.sh - Extracts the sheets from a book
+# usage: cedbooksplit.sh BOOKFILENAME OUPUTDIRECTORY
+# e.g. cedbooksplit.sh ~/output.zip ~/temp_sheet
+# by Mark Tyler 19th February 2013
+
+# On error exit
+set -e
+
+mkdir -p "$2"
+
+TMP_FILE="$2"/tmp.txt
+
+printf "load \"$1\"\n" &gt; "$TMP_FILE"
+
+printf "load \"$1\"\nlist sheets" |
+mtcedcli -q |
+awk '!/^$/ &amp;&amp; !/^mtcedcli/' |
+while read SHEET
+do
+	LOWER=$(echo "$SHEET" | tr '[:upper:]' '[:lower:]')
+
+	case "$LOWER" in
+	*csv )	TYPE=csv;;
+	* )	TYPE=tsv;;
+	esac
+
+	echo set sheet \"$SHEET\" &gt;&gt; "$TMP_FILE"
+	echo export sheet \"$2/$SHEET\" $TYPE &gt;&gt; "$TMP_FILE"
+done
+
+cat "$TMP_FILE"
+
+echo
+echo Type y and press ENTER to run this script
+
+read KEY
+
+if [ "$KEY" = "y" ]
+then
+	cat "$TMP_FILE" | mtcedcli
+fi
+
+echo
+</pre>
+
+<hr class="light">
+
+<p>
+<a href="chap_05.html">Previous</a> | <a href="chap_00.html">Contents</a> | <a href="chap_A.html">Next</a>
+</p>
+</section>
+</section>
+</section>
+</div>
+
+<!-- html code generated by txt2tags 3.4 (http://txt2tags.org) -->
+<!-- cmdline: txt2tags -t html -o chap_06.html chap_06.t2t -->
+</article></body></html>

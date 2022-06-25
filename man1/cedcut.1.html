@@ -1,0 +1,143 @@
+Content-type: text/html; charset=UTF-8
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of CEDCUT</TITLE>
+</HEAD><BODY>
+<H1>CEDCUT</H1>
+Section: User Commands  (1)<BR>Updated: 2022-06-25<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+cedcut - cut spreadsheet rows or columns
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>cedcut</B> [ [ <B>OPTION</B> ] [ FILE ] ]...
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+Cut and remove rows or columns from a spreadsheet.
+If FILE==&quot;&quot; then use the current sheet in memory.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+
+<B>--version</B>
+<DL COMPACT><DT><DD>
+Output version information and exit.
+</DL>
+
+<P>
+
+<B>-col</B>
+<DL COMPACT><DT><DD>
+Cut column(s).
+</DL>
+
+<P>
+
+<B>-csv</B>
+<DL COMPACT><DT><DD>
+The following input file is CSV.
+</DL>
+
+<P>
+
+<B>-o</B> STRING
+<DL COMPACT><DT><DD>
+Save current sheet to this file (immediately).  &quot;-&quot; prints to stdout.
+</DL>
+
+<P>
+
+<B>-otype</B> STRING
+<DL COMPACT><DT><DD>
+Output format of file (use 'list' to list types, default=TSV content).
+</DL>
+
+<P>
+
+<B>-recalc</B> INTEGER
+<DL COMPACT><DT><DD>
+Recalculate the sheet this many times (top-bottom, bottom-top).
+</DL>
+
+<P>
+
+<B>-row</B>
+<DL COMPACT><DT><DD>
+Cut row(s) (default).
+</DL>
+
+<P>
+
+<B>-start</B> INTEGER
+<DL COMPACT><DT><DD>
+Start cutting at this row or column (default = 1).
+</DL>
+
+<P>
+
+<B>-total</B> INTEGER
+<DL COMPACT><DT><DD>
+Total number of rows or columns to cut (default = 1).
+</DL>
+
+<P>
+
+<B>-tsv</B>
+<DL COMPACT><DT><DD>
+The following input file is TSV (default).
+</DL>
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+<P>
+
+<A HREF="../man1/cedutils.1.html">cedutils</A>(1)
+<A NAME="lbAG">&nbsp;</A>
+<H2>HOMEPAGE</H2>
+
+<P>
+
+<A HREF="https://www.marktyler.org/">https://www.marktyler.org/</A>
+<A NAME="lbAH">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<P>
+
+Mark Tyler
+<P>
+
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">SEE ALSO</A><DD>
+<DT><A HREF="#lbAG">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAH">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://doc.marktyler.org/">man2html</A>,
+using the manual pages.<BR>
+Time: 15:07:56 GMT, June 25, 2022
+</BODY>
+</HTML>

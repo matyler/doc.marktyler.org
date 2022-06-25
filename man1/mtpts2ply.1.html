@@ -1,0 +1,107 @@
+Content-type: text/html; charset=UTF-8
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of MTPTS2PLY</TITLE>
+</HEAD><BODY>
+<H1>MTPTS2PLY</H1>
+Section: User Commands  (1)<BR>Updated: 2022-06-25<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+mtpts2ply - convert PTS file to PLY
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>mtpts2ply</B> [ <B>OPTIONS</B> ] [ FILENAME ]
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+mtpts2ply converts a PTS file to PLY format.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+
+<B>--version</B>
+<DL COMPACT><DT><DD>
+Output version information and exit.
+</DL>
+
+<P>
+
+<B>-n</B> INTEGER
+<DL COMPACT><DT><DD>
+Set the number of subdivisions to 2^n (default = none).  -32 &lt;= n &lt;= 32.
+</DL>
+
+<P>
+
+<B>-o</B> FILENAME
+<DL COMPACT><DT><DD>
+Output file prefix.
+</DL>
+
+<P>
+
+<B>-slices</B> INTEGER
+<DL COMPACT><DT><DD>
+Slice data up in N x N files (x,y) as given by -o (default = 1).
+1 &lt;= N &lt;= 16.
+</DL>
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>EXAMPLE</H2>
+
+<P>
+
+mtpts2ply -n -2 raw.pts &gt; ordered_2.ply
+<P>
+
+xzcat raw.pts.xz | mtpts2ply -n -2 &gt; ordered_2.ply
+<P>
+
+xzcat raw.pts.xz | mtpts2ply -slices 5 -o ~/data/out_
+<A NAME="lbAG">&nbsp;</A>
+<H2>HOMEPAGE</H2>
+
+<P>
+
+<A HREF="https://www.marktyler.org/">https://www.marktyler.org/</A>
+<A NAME="lbAH">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<P>
+
+Mark Tyler
+<P>
+
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">EXAMPLE</A><DD>
+<DT><A HREF="#lbAG">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAH">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://doc.marktyler.org/">man2html</A>,
+using the manual pages.<BR>
+Time: 15:07:56 GMT, June 25, 2022
+</BODY>
+</HTML>

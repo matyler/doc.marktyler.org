@@ -1,0 +1,170 @@
+Content-type: text/html; charset=UTF-8
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of MTLANTER</TITLE>
+</HEAD><BODY>
+<H1>MTLANTER</H1>
+Section: User Commands  (1)<BR>Updated: 2022-06-25<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+mtlanter - Landscape terraformer explorer
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>mtlanter</B> [ <B>OPTIONS</B> ]... [ FILENAME ]
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+mtlanter visually explores an OpenGL scene containing a terraformed landscape.
+Left mouse click to move the camera in that given direction, right click to tilt the camera in that direction.
+Use the <B>Arrow Keys</B> to move, with <B>Shift</B> to move more quickly, or the
+<B>Ctrl</B> key to shift the view in that direction.
+The <B>F1</B> key prints the current position to stdout.
+The <B>s</B> key dumps the current image to the user's home directory.
+The <B>Home</B> key returns to the start position.
+The <B>Escape</B> key terminates the program, when not processing.
+The <B>End</B> key Redraws the current view.
+Zoom in and out using the keys <B>Page Up</B>, <B>Page Down</B>, with <B>Shift</B> to speed this up.
+In animation mode, the <B>Escape</B> key terminates the job.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+
+<B>--version</B>
+<DL COMPACT><DT><DD>
+Output version information and exit.
+</DL>
+
+<P>
+
+<B>-dir</B> STRING
+<DL COMPACT><DT><DD>
+Output directory for saving animation frames.
+</DL>
+
+<P>
+
+<B>-fps</B> INTEGER
+<DL COMPACT><DT><DD>
+Frames per second of the animation (10 to 120). Default = 60.
+</DL>
+
+<P>
+
+<B>-oh</B> INTEGER
+<DL COMPACT><DT><DD>
+Fix output pixmap height (128 to 15360). Default = 0, which allows the window to resize.
+</DL>
+
+<P>
+
+<B>-ow</B> INTEGER
+<DL COMPACT><DT><DD>
+Fix output pixmap width (128 to 15360). Default = 0, which allows the window to resize.
+</DL>
+
+<P>
+
+<B>-prefs</B> STRING
+<DL COMPACT><DT><DD>
+Use this file for GUI program preferences (e.g. window position).
+</DL>
+
+<P>
+
+<B>-savemap</B> STRING
+<DL COMPACT><DT><DD>
+Save the map data to this TSV file.
+</DL>
+
+<P>
+
+<B>-seed</B> INTEGER
+<DL COMPACT><DT><DD>
+Set the PRNG seed to this before generating the landscape. Default = 0.
+</DL>
+
+<P>
+
+<B>-size</B> INTEGER
+<DL COMPACT><DT><DD>
+Set the size of the landscape (4 to 10). Default = 6 : (1 &lt;&lt; 6)+1 = 65 rows.
+</DL>
+
+<P>
+
+<B>-tsv</B> STRING
+<DL COMPACT><DT><DD>
+Create an animation using this TSV file.
+</DL>
+
+<P>
+
+<B>-v</B>
+<DL COMPACT><DT><DD>
+Verbose.
+</DL>
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>EXAMPLE</H2>
+
+<P>
+
+<B>mtlanter</B> -ow 1920 -oh 1080 -tsv test/lanter_001_lights.tsv
+<A NAME="lbAG">&nbsp;</A>
+<H2>FILES</H2>
+
+<P>
+
+~/.config/mtlanter/prefs.txt
+<DL COMPACT><DT><DD>
+Default file used for storing user preferences.
+</DL>
+
+<A NAME="lbAH">&nbsp;</A>
+<H2>HOMEPAGE</H2>
+
+<P>
+
+<A HREF="https://www.marktyler.org/">https://www.marktyler.org/</A>
+<A NAME="lbAI">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<P>
+
+Mark Tyler
+<P>
+
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">EXAMPLE</A><DD>
+<DT><A HREF="#lbAG">FILES</A><DD>
+<DT><A HREF="#lbAH">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAI">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://doc.marktyler.org/">man2html</A>,
+using the manual pages.<BR>
+Time: 15:07:56 GMT, June 25, 2022
+</BODY>
+</HTML>
