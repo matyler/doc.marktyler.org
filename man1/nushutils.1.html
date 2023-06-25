@@ -1,9 +1,9 @@
 Content-type: text/html; charset=UTF-8
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML><HEAD><TITLE>Man page of CEDPASTE</TITLE>
+<HTML><HEAD><TITLE>Man page of NUSHUTILS</TITLE>
 </HEAD><BODY>
-<H1>CEDPASTE</H1>
+<H1>NUSHUTILS</H1>
 Section: User Commands  (1)<BR>Updated: 2023-06-25<BR><A HREF="#index">Index</A>
 <A HREF="../index.html">Return to Main Contents</A><HR>
 
@@ -13,19 +13,20 @@ Section: User Commands  (1)<BR>Updated: 2023-06-25<BR><A HREF="#index">Index</A>
 
 <P>
 
-cedpaste - paste data into spreadsheet
+nushutils - command line big number utilities
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <P>
 
-<B>cedpaste</B> [ [ <B>OPTION</B> ] [ FILE ] ]...
+<B>nushutils</B> [ [OPTION]... [FILE] ]...
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <P>
 
-Load first file, and paste subsequent files onto the sheet.
+mtNushUtils is Mark Tyler's NUmber SHell Utilities.
+It is a collection of command line functions for manipulating large numbers using infix mathematical expressions.
 <A NAME="lbAE">&nbsp;</A>
 <H2>OPTIONS</H2>
 
@@ -38,61 +39,86 @@ Output version information and exit.
 
 <P>
 
-<B>-csv</B>
+<B>-cli</B>
 <DL COMPACT><DT><DD>
-The following input file is CSV.
+Use the interactive CLI mode.
 </DL>
 
 <P>
 
-<B>-dest</B> STRING
+<B>-b</B> INTEGER
 <DL COMPACT><DT><DD>
-Paste to this section of the sheet (default = r1c1:r1c1 ).
-When a single cell, paste whole of input.  Otherwise truncate
-or repeat input data to fill the dest range.
+Set the bit precision for floating point number mode (default=10, range=10..32).
+Bits used for numbers are 2^b, so 10 allocates 2^10 bits for each number.
 </DL>
 
 <P>
 
-<B>-o</B> STRING
+<B>-funcs</B>
 <DL COMPACT><DT><DD>
-Save current sheet to this file (immediately).  &quot;-&quot; prints to stdout.
+Print out all of the functions for the current mode.
 </DL>
 
 <P>
 
-<B>-otype</B> STRING
+<B>-i</B> STRING
 <DL COMPACT><DT><DD>
-Output format of file (use 'list' to list types, default=TSV content).
+Load this input file.  &quot;-&quot; loads from stdin.
 </DL>
 
 <P>
 
-<B>-range</B> STRING
+<B>-integer</B>
 <DL COMPACT><DT><DD>
-Paste from this section of the input file (default = r1c1:r_c_ ).
+Use integer number mode.
 </DL>
 
 <P>
 
-<B>-recalc</B> INTEGER
+<B>-float</B>
 <DL COMPACT><DT><DD>
-Recalculate the sheet this many times (top-bottom, bottom-top).
+Use floating point number mode (default).
 </DL>
 
 <P>
 
-<B>-tsv</B>
+<B>-rational</B>
 <DL COMPACT><DT><DD>
-The following input file is TSV (default).
+Use rational number mode.
+</DL>
+
+<P>
+
+<B>-v</B>
+<DL COMPACT><DT><DD>
+Verbose.
+</DL>
+
+<P>
+
+<B>-vars</B>
+<DL COMPACT><DT><DD>
+Print out all of the variables and their values.
 </DL>
 
 <A NAME="lbAF">&nbsp;</A>
-<H2>SEE ALSO</H2>
+<H2>CAVEATS</H2>
 
 <P>
 
-<A HREF="../man1/cedutils.1.html">cedutils</A>(1)
+Don't begin an expression with a minus sign, otherwise it will be interpreted as a switch:
+<P>
+
+nushutils &quot;-2*2&quot;
+<P>
+
+Instead, use a space or brackets:
+<P>
+
+nushutils &quot; -2*2&quot;
+<P>
+
+nushutils &quot;(-2*2)&quot;
 <A NAME="lbAG">&nbsp;</A>
 <H2>HOMEPAGE</H2>
 
@@ -117,7 +143,7 @@ Mark Tyler
 <DT><A HREF="#lbAC">SYNOPSIS</A><DD>
 <DT><A HREF="#lbAD">DESCRIPTION</A><DD>
 <DT><A HREF="#lbAE">OPTIONS</A><DD>
-<DT><A HREF="#lbAF">SEE ALSO</A><DD>
+<DT><A HREF="#lbAF">CAVEATS</A><DD>
 <DT><A HREF="#lbAG">HOMEPAGE</A><DD>
 <DT><A HREF="#lbAH">AUTHOR</A><DD>
 </DL>

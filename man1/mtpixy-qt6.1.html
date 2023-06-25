@@ -1,9 +1,9 @@
 Content-type: text/html; charset=UTF-8
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML><HEAD><TITLE>Man page of MTDWCLI</TITLE>
+<HTML><HEAD><TITLE>Man page of MTPIXY-QT6</TITLE>
 </HEAD><BODY>
-<H1>MTDWCLI</H1>
+<H1>MTPIXY-QT6</H1>
 Section: User Commands  (1)<BR>Updated: 2023-06-25<BR><A HREF="#index">Index</A>
 <A HREF="../index.html">Return to Main Contents</A><HR>
 
@@ -13,32 +13,19 @@ Section: User Commands  (1)<BR>Updated: 2023-06-25<BR><A HREF="#index">Index</A>
 
 <P>
 
-mtdwcli - CLI random data and crypto tool
+mtpixy-qt6 - image editor
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <P>
 
-<B>mtdwcli</B> [OPTION]...
+<B>mtpixy-qt6</B> [ <B>OPTIONS</B> ] [ FILENAME ]
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <P>
 
-mtdwcli provides various random data and cryptographic tools via a Command
-Line Interface (CLI):
-<P>
-
-* Quality random data generation via a PRNG and user provided entropy.
-<P>
-
-* Database of one time pads (OTP).
-<P>
-
-* Encoding of files (using the OTP database) into a &quot;soda&quot; file.
-<P>
-
-* Steganography: infuse soda files into PNG images.
+mtpixy-qt6 is a lightweight pixel image editor which is designed to handle simple day to day tasks such as viewing or editing pixel art PNG files.
 <A NAME="lbAE">&nbsp;</A>
 <H2>OPTIONS</H2>
 
@@ -51,33 +38,35 @@ Output version information and exit.
 
 <P>
 
-<B>-db</B> STRING
+<B>-prefs</B> STRING
 <DL COMPACT><DT><DD>
-Use this path to store the database files. By default this
-is ~/.config/libmtDataWell/
+Use this file for program preferences.
 </DL>
 
 <P>
 
-<B>-q</B>
+<B>-s</B>
 <DL COMPACT><DT><DD>
-Quiet - Don't show 'about' info on startup.
-</DL>
-
-<P>
-
-<B>-t</B>
-<DL COMPACT><DT><DD>
-Interpret TAB as text.
+Grab a screenshot on startup.
 </DL>
 
 <A NAME="lbAF">&nbsp;</A>
+<H2>FILES</H2>
+
+<P>
+
+~/.config/mtpixy-qt6/prefs.txt
+<DL COMPACT><DT><DD>
+Used for storing user preferences.
+</DL>
+
+<A NAME="lbAG">&nbsp;</A>
 <H2>HOMEPAGE</H2>
 
 <P>
 
 <A HREF="https://www.marktyler.org/">https://www.marktyler.org/</A>
-<A NAME="lbAG">&nbsp;</A>
+<A NAME="lbAH">&nbsp;</A>
 <H2>AUTHOR</H2>
 
 <P>
@@ -95,8 +84,9 @@ Mark Tyler
 <DT><A HREF="#lbAC">SYNOPSIS</A><DD>
 <DT><A HREF="#lbAD">DESCRIPTION</A><DD>
 <DT><A HREF="#lbAE">OPTIONS</A><DD>
-<DT><A HREF="#lbAF">HOMEPAGE</A><DD>
-<DT><A HREF="#lbAG">AUTHOR</A><DD>
+<DT><A HREF="#lbAF">FILES</A><DD>
+<DT><A HREF="#lbAG">HOMEPAGE</A><DD>
+<DT><A HREF="#lbAH">AUTHOR</A><DD>
 </DL>
 <HR>
 This document was created by

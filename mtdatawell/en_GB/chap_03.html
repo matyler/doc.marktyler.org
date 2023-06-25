@@ -50,7 +50,9 @@ In order to compile and run mtDataWell you must have several packages already pr
 </li>
 <li>txt2tags.
 </li>
-<li>Inkscape (to build the GUI app icons)
+<li>Inkscape (to build the GUI app icons).
+</li>
+<li>gperf.
 </li>
 </ul>
 
@@ -69,8 +71,8 @@ mtDataWell then requires various libraries that I have created:
 </tr>
 <tr>
 <td>libmtKit</td>
-<td>zlib, libsqlite3</td>
-<td>Low level C/C++ routines, including strings, UTF-8, ZIP file handling, preferences, trees, databases.</td>
+<td>zlib, readline</td>
+<td>Low level C/C++ routines, including strings, UTF-8, ZIP file handling, preferences, trees.</td>
 </tr>
 <tr>
 <td>libmtPixy</td>
@@ -79,8 +81,8 @@ mtDataWell then requires various libraries that I have created:
 </tr>
 <tr>
 <td>libmtDataWell</td>
-<td>libmtKit, libmtPixy, libsndfile</td>
-<td>Crypto and random data library.</td>
+<td>libmtKit, libmtPixy, libsqlite3, libsndfile, libgmp, libmpfr</td>
+<td>Crypto, math, and random data library.</td>
 </tr>
 <tr>
 <td>libmtQEX</td>
@@ -100,14 +102,9 @@ The other optional parts of the suite have these dependencies:
 <td><strong>Description</strong></td>
 </tr>
 <tr>
-<td>mtDWCLI</td>
-<td>libmtKit, libmtDataWell, readline</td>
-<td>Command line crypto and random data app.</td>
-</tr>
-<tr>
 <td>mtDWUtils</td>
-<td>libmtKit, libmtDataWell</td>
-<td>Command line crypto and random data utilities.</td>
+<td>libmtKit, libmtDataWell, libgmp, libmpfr</td>
+<td>Command line crypto, math, and random data utilities, including: mtDWCLI, mtNushUtils.</td>
 </tr>
 </table>
 

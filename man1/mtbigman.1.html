@@ -1,9 +1,9 @@
 Content-type: text/html; charset=UTF-8
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML><HEAD><TITLE>Man page of MTMANDY</TITLE>
+<HTML><HEAD><TITLE>Man page of MTBIGMAN</TITLE>
 </HEAD><BODY>
-<H1>MTMANDY</H1>
+<H1>MTBIGMAN</H1>
 Section: User Commands  (1)<BR>Updated: 2023-06-25<BR><A HREF="#index">Index</A>
 <A HREF="../index.html">Return to Main Contents</A><HR>
 
@@ -13,19 +13,20 @@ Section: User Commands  (1)<BR>Updated: 2023-06-25<BR><A HREF="#index">Index</A>
 
 <P>
 
-mtmandy - mandelbrot set explorer
+mtbigman - mandelbrot set explorer using big numbers
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <P>
 
-<B>mtmandy</B> [ <B>OPTIONS</B> ]... [ FILENAME ]
+<B>mtbigman</B> [ <B>OPTIONS</B> ]... [ FILENAME ]
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <P>
 
-mtmandy visually explores the Mandelbrot set.
+mtbigman visually explores the Mandelbrot set using big numbers, or arbitrary
+precision floating point numbers.
 Left mouse click to move the centre of the zoom box, right click to zoom in.
 Use the <B>Arrow Keys</B> to move, with <B>Shift</B> to move more quickly, or the
 <B>Ctrl</B> key to shift the view in that direction.
@@ -33,7 +34,7 @@ The <B>F1</B> key prints the current position to stdout.
 The <B>s</B> key dumps the current image to the user's home directory.
 The <B>Home</B> key returns to the start position.
 The <B>Delete</B> or <B>Escape</B> keys terminate the current processing job.
-The <B>Escape</B> key terminates the program, when not processing.
+The <B>q</B> key terminates the program, when not processing.
 The <B>End</B> key Redraws the current view.
 Zoom in and out using the keys <B>Page Up</B>, <B>Page Down</B>, <B>Enter</B>, <B>+</B>, <B>-</B>.
 <A NAME="lbAE">&nbsp;</A>
@@ -136,13 +137,13 @@ Verbose.
 
 <P>
 
-<B>mtmandy</B> -cx 0.5 -cy 0.2 -threads 5
+<B>mtbigman</B> -cx 0.5 -cy 0.2 -threads 5
 <A NAME="lbAG">&nbsp;</A>
 <H2>FILES</H2>
 
 <P>
 
-~/.config/mtmandy/prefs.txt
+~/.config/mtbigman/prefs.txt
 <DL COMPACT><DT><DD>
 Default file used for storing user preferences.
 </DL>

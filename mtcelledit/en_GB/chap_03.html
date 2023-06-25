@@ -50,7 +50,9 @@ In order to compile and run mtCellEdit you must have several packages already pr
 </li>
 <li>txt2tags.
 </li>
-<li>Inkscape (to build the GUI app icons)
+<li>Inkscape (to build the GUI app icons).
+</li>
+<li>gperf.
 </li>
 </ul>
 
@@ -69,8 +71,8 @@ mtCellEdit then requires various libraries that I have created:
 </tr>
 <tr>
 <td>libmtKit</td>
-<td>zlib, libsqlite3</td>
-<td>Low level C/C++ routines, including strings, UTF-8, ZIP file handling, preferences, trees, databases.</td>
+<td>zlib, readline</td>
+<td>Low level C/C++ routines, including strings, UTF-8, ZIP file handling, preferences, trees.</td>
 </tr>
 <tr>
 <td>libmtPixy</td>
@@ -101,8 +103,8 @@ The other optional parts of the suite have these dependencies:
 </tr>
 <tr>
 <td>libmtDataWell</td>
-<td>libmtKit, libmtPixy, libsndfile</td>
-<td>Crypto and random data library.</td>
+<td>libmtKit, libmtPixy, libsqlite3, libsndfile, libgmp, libmpfr</td>
+<td>Crypto, math, and random data library.</td>
 </tr>
 <tr>
 <td>libmtGin</td>
@@ -110,18 +112,13 @@ The other optional parts of the suite have these dependencies:
 <td>Graphical Interface Nexus library (SDL, OpenGL).</td>
 </tr>
 <tr>
-<td>mtCedCLI</td>
-<td>libmtKit, libmtPixy, libmtCellEdit, readline</td>
-<td>Command line spreadsheet.</td>
-</tr>
-<tr>
 <td>mtCedUtils</td>
-<td>libmtKit, libmtCellEdit</td>
-<td>Command line text tools, mtNetLog, mtRDC.</td>
+<td>libmtKit, libmtPixy, libmtCellEdit</td>
+<td>Command line spreadsheet tools, including: mtNetLog, mtRDC, mtCedCLI.</td>
 </tr>
 <tr>
 <td>mtCrul</td>
-<td>libmtKit, libmtPixy, libmtGin, libmtQEX, Qt5, libgl</td>
+<td>libmtKit, libmtPixy, libmtGin, libmtDataWell, libmtQEX, Qt5, libgl</td>
 <td>Point cloud measuring tool.</td>
 </tr>
 <tr>
@@ -130,14 +127,9 @@ The other optional parts of the suite have these dependencies:
 <td>Crypto and random data app.</td>
 </tr>
 <tr>
-<td>mtDWCLI</td>
-<td>libmtKit, libmtDataWell, readline</td>
-<td>Command line crypto and random data app.</td>
-</tr>
-<tr>
 <td>mtDWUtils</td>
-<td>libmtKit, libmtDataWell</td>
-<td>Command line crypto and random data utilities.</td>
+<td>libmtKit, libmtDataWell, libgmp, libmpfr</td>
+<td>Command line crypto, math, and random data utilities, including: mtDWCLI, mtNushUtils.</td>
 </tr>
 <tr>
 <td>mtGinUtils</td>
@@ -150,14 +142,9 @@ The other optional parts of the suite have these dependencies:
 <td>Pixel image editor.</td>
 </tr>
 <tr>
-<td>mtPixyCLI</td>
-<td>libmtKit, libmtPixy, readline</td>
-<td>Command line pixel image editor.</td>
-</tr>
-<tr>
 <td>mtPixyUtils</td>
 <td>libmtKit, libmtPixy</td>
-<td>Command line pixel image tools.</td>
+<td>Command line pixel image tools, including: mtPixyCLI.</td>
 </tr>
 <tr>
 <td>mtRaft</td>
